@@ -279,11 +279,30 @@ public partial class _Default : System.Web.UI.Page
         MasterBD.eliminarMovimientoCaja(id_caja);
 
         DateTime fecha1 = Convert.ToDateTime(ViewState["FECHA_INICIAL"]);
+        fecha1.AddHours(23);
+        fecha1.AddMinutes(59);
+        fecha1.AddSeconds(59);
+
         DateTime fecha2 = Convert.ToDateTime(ViewState["FECHA_FINAL"]);
+        fecha2.AddHours(23);
+        fecha2.AddMinutes(59);
+        fecha2.AddSeconds(59);
+
         int id_tipo_concepto = Convert.ToInt32(ViewState["ID_TIPO_CONCEPTO"]);
         String concepto = ViewState["CONCEPTO"].ToString();
+        String concepto2 = ddlConceptoListados2.SelectedItem.Text.Trim();
+        if (concepto2 == "--LISTAR TODOS--")
+        {
+            concepto2 = "null";
+        }
 
-        DataSet ds = MasterBD.generarListados(fecha1, fecha2, id_tipo_concepto,concepto);
+        String concepto3 = ddlConceptoListados3.SelectedItem.Text.Trim();
+        if (concepto3 == "--LISTAR TODOS--")
+        {
+            concepto3 = "null";
+        }
+
+        DataSet ds = MasterBD.generarListados(fecha1, fecha2, id_tipo_concepto,concepto,concepto2,concepto3);
         gvListados.DataSource = ds.Tables[0];
         gvListados.DataBind();
 
@@ -452,16 +471,36 @@ public partial class _Default : System.Web.UI.Page
         else
         {
             DateTime fecha1 = Convert.ToDateTime(txtFechaInicial.Text.Trim());
+            fecha1=fecha1.AddHours(23);
+            fecha1=fecha1.AddMinutes(59);
+            fecha1=fecha1.AddSeconds(59);
+
             DateTime fecha2 = Convert.ToDateTime(txtFechaFinal.Text.Trim());
+            fecha2=fecha2.AddHours(23);
+            fecha2=fecha2.AddMinutes(59);
+            fecha2=fecha2.AddSeconds(59);
+
             int id_tipo_concepto = Convert.ToInt32(rblTipoConceptoListados.SelectedValue);
+
             String concepto = ddlConceptoListados.SelectedItem.Text.Trim();
+            String concepto2 = ddlConceptoListados2.SelectedItem.Text.Trim();
+            if (concepto2 == "--LISTAR TODOS--")
+            {
+                concepto2 = "null";
+            }
+            
+            String concepto3 = ddlConceptoListados3.SelectedItem.Text.Trim();
+            if (concepto3 == "--LISTAR TODOS--")
+            {
+                concepto3 = "null";
+            }
 
             ViewState["FECHA_INICIAL"] = fecha1;
             ViewState["FECHA_FINAL"] = fecha2;
             ViewState["ID_TIPO_CONCEPTO"] = id_tipo_concepto;
             ViewState["CONCEPTO"] = concepto;
 
-            DataSet ds = MasterBD.generarListados(fecha1, fecha2, id_tipo_concepto,concepto);
+            DataSet ds = MasterBD.generarListados(fecha1, fecha2, id_tipo_concepto,concepto,concepto2,concepto3);
 
             gvListados.DataSource = ds.Tables[0];
             gvListados.DataBind();
@@ -529,6 +568,7 @@ public partial class _Default : System.Web.UI.Page
     }
     protected void cargarConceptoListados()
     {
+        /*Primero concepto a listar*/
         DataSet ds = MasterBD.listarConceptosListados();
         ddlConceptoListados.DataSource = ds;
         ddlConceptoListados.DataValueField = "id_concepto";
@@ -540,6 +580,31 @@ public partial class _Default : System.Web.UI.Page
         ddlConceptoListados.Items.Add(lt);
         ddlConceptoListados.SelectedValue = "-1";
 
+
+        /*Segundo concepto a listar*/
+        ddlConceptoListados2.DataSource = ds;
+        ddlConceptoListados2.DataValueField = "id_concepto";
+        ddlConceptoListados2.DataTextField = "nombre";
+        ddlConceptoListados2.DataBind();
+
+
+        ListItem lt2 = new ListItem("--LISTAR TODOS--", "-1");
+        ddlConceptoListados2.Items.Add(lt2);
+        ddlConceptoListados2.SelectedValue = "-1";
+
+
+        /*Tecer concepto a listar*/
+        ddlConceptoListados3.DataSource = ds;
+        ddlConceptoListados3.DataValueField = "id_concepto";
+        ddlConceptoListados3.DataTextField = "nombre";
+        ddlConceptoListados3.DataBind();
+
+
+        ListItem lt3 = new ListItem("--LISTAR TODOS--", "-1");
+        ddlConceptoListados3.Items.Add(lt3);
+        ddlConceptoListados3.SelectedValue = "-1";
+        
+
     }
     protected void ddlConceptoListados_OnSelectedIndexChanged(object sender, EventArgs e)
     {
@@ -547,11 +612,46 @@ public partial class _Default : System.Web.UI.Page
         {
             rblTipoConceptoListados.SelectedIndex = 0;
             rblTipoConceptoListados.Enabled = true;
+
+            lblConceptoListados2.Visible = false;
+            ddlConceptoListados2.Visible = false;
+            ddlConceptoListados2.SelectedValue = "-1";
+
+            lblConceptoListados3.Visible = false;
+            ddlConceptoListados3.Visible = false;
+            ddlConceptoListados3.SelectedValue = "-1";
         }
         else
         {
             rblTipoConceptoListados.SelectedIndex = 0;
             rblTipoConceptoListados.Enabled = false;
+
+
+            lblConceptoListados2.Visible = true;
+            ddlConceptoListados2.Visible = true;
+        }
+    }
+    protected void ddlConceptoListados2_OnSelectedIndexChanged(object sender, EventArgs e)
+    {
+        if (ddlConceptoListados2.SelectedValue == "-1")
+        {
+            lblConceptoListados3.Visible = false;
+            ddlConceptoListados3.Visible = false;
+            ddlConceptoListados3.SelectedValue = "-1";
+        }
+        else
+        {
+            lblConceptoListados3.Visible = true;
+            ddlConceptoListados3.Visible = true;
+        }
+    }
+    protected void ddlConceptoListados3_OnSelectedIndexChanged(object sender, EventArgs e)
+    {
+        if (ddlConceptoListados3.SelectedValue == "-1")
+        {
+        }
+        else
+        {
         }
     }
     protected void ibListadoWord_OnClick(object sender, EventArgs e)

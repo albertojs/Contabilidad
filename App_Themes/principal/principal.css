@@ -132,6 +132,9 @@ body a:hover
     margin-top:57px;
     width:100%;
     padding:0px;
+    height:550px;
+    overflow:auto;
+    
     
 }
 .gridViewConceptos table

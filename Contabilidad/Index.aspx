@@ -158,8 +158,8 @@
                                                         <asp:Label ID="lblTipoConcepto" runat="server" Text="Tipo de Concepto :" CssClass="black14b"></asp:Label>
                                                     </td>
                                                     <td>
-                                                        <asp:DropDownList ID="ddlTipoConcepto" runat="server" CssClass="black14">
-                                                        </asp:DropDownList>
+                                                            <asp:DropDownList ID="ddlTipoConcepto" runat="server" CssClass="black14">
+                                                            </asp:DropDownList>    
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -244,6 +244,24 @@
                                         </td>
                                         <td align="left">
                                             <asp:DropDownList ID="ddlConceptoListados" runat="server" CssClass="black14b" AutoPostBack="true" OnSelectedIndexChanged="ddlConceptoListados_OnSelectedIndexChanged">
+                                            </asp:DropDownList>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right" style="height:40px;">
+                                            <asp:Label ID="lblConceptoListados2" runat="server" CssClass="black14b" Text="Selecciona el 2º Concepto a listar : " Visible="false"></asp:Label>
+                                        </td>
+                                        <td align="left">
+                                            <asp:DropDownList ID="ddlConceptoListados2" runat="server" CssClass="black14b" AutoPostBack="true" Visible="false" OnSelectedIndexChanged="ddlConceptoListados2_OnSelectedIndexChanged">
+                                            </asp:DropDownList>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right" style="height:40px;">
+                                            <asp:Label ID="lblConceptoListados3" runat="server" CssClass="black14b" Text="Selecciona el 3º Concepto a listar : " Visible="false"></asp:Label>
+                                        </td>
+                                        <td align="left">
+                                            <asp:DropDownList ID="ddlConceptoListados3" runat="server" CssClass="black14b" AutoPostBack="true" Visible="false" OnSelectedIndexChanged="ddlConceptoListados3_OnSelectedIndexChanged">
                                             </asp:DropDownList>
                                         </td>
                                     </tr>
