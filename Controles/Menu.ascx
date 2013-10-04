@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="Menu.ascx.cs" Inherits="Controles_Menu" %>
 
-<table  cellpadding="5" cellspacing="0">
+<table  cellpadding="0" cellspacing="0">
     <tr>
         <td align="center">
             <asp:LinkButton ID="lnkMenu1" runat="server" Text="Inicio" OnClick="lnkMenu1_OnClick"></asp:LinkButton>
@@ -13,6 +13,9 @@
         </td>
         <td align="center">
             <asp:LinkButton ID="lnkMenu4" runat="server" Text="Listados" OnClick="lnkMenu4_OnClick"></asp:LinkButton>
+        </td>
+        <td align="center">
+            <asp:LinkButton ID="lnkMenu6" runat="server" Text="Gráficos" OnClick="lnkMenu6_OnClick"></asp:LinkButton>
         </td>
         <td align="center">
             <asp:LinkButton ID="lnkMenu5" runat="server" Text="Salir" OnClick="lnkMenu5_OnClick"></asp:LinkButton>

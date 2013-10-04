@@ -279,9 +279,6 @@ public partial class _Default : System.Web.UI.Page
         MasterBD.eliminarMovimientoCaja(id_caja);
 
         DateTime fecha1 = Convert.ToDateTime(ViewState["FECHA_INICIAL"]);
-        fecha1.AddHours(23);
-        fecha1.AddMinutes(59);
-        fecha1.AddSeconds(59);
 
         DateTime fecha2 = Convert.ToDateTime(ViewState["FECHA_FINAL"]);
         fecha2.AddHours(23);
@@ -356,6 +353,10 @@ public partial class _Default : System.Web.UI.Page
         {
             reiniciarListados();
             visibilidadListado(false);
+        }
+        else if (mvOpciones.ActiveViewIndex == 4)
+        {
+            cargarGrafico();
         }
     }
     protected void reiniciarListados()
@@ -471,10 +472,6 @@ public partial class _Default : System.Web.UI.Page
         else
         {
             DateTime fecha1 = Convert.ToDateTime(txtFechaInicial.Text.Trim());
-            fecha1=fecha1.AddHours(23);
-            fecha1=fecha1.AddMinutes(59);
-            fecha1=fecha1.AddSeconds(59);
-
             DateTime fecha2 = Convert.ToDateTime(txtFechaFinal.Text.Trim());
             fecha2=fecha2.AddHours(23);
             fecha2=fecha2.AddMinutes(59);
@@ -677,6 +674,22 @@ public partial class _Default : System.Web.UI.Page
             Response.Write(html);
 
         }
+    }
+    protected void cargarGrafico()
+    {
+        DataSet ds = MasterBD.generarGraficos();
+        DataTable dt = ds.Tables[0];
+        DataView data = new DataView(dt);
+
+        Chart1.Series["Series1"].Points.DataBind(data, "Meses", "Ventas", "");
+
+        dt = ds.Tables[1];
+        data = new DataView(dt);
+
+        Chart2.Series["Series1"].Points.DataBind(data, "concepto", "importe", "");
+        /*DataTable dt = GetSalesPerMonth();
+        DataView data = new DataView(dt);
+        Chart1.Series["Series1"].Points.DataBind(data, "Month", "Sales", "");*/
     }
 
 }

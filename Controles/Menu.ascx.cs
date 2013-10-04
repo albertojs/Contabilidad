@@ -70,6 +70,15 @@ public partial class Controles_Menu : System.Web.UI.UserControl
         MultiView mv = (MultiView)Parent.FindControl("mvOpciones");
         mv.ActiveViewIndex = 3;
     }
+    protected void lnkMenu6_OnClick(object sender, EventArgs e)
+    {
+        reiniciarDiseño();
+        lnkMenu6.Style.Add("color", "blue");
+        lnkMenu6.Style.Add("background-color", "#58CCF1");
+
+        MultiView mv = (MultiView)Parent.FindControl("mvOpciones");
+        mv.ActiveViewIndex = 4;
+    }
     protected void lnkMenu5_OnClick(object sender, EventArgs e)
     {
         Response.Redirect("../Login.aspx");
@@ -84,5 +93,7 @@ public partial class Controles_Menu : System.Web.UI.UserControl
         lnkMenu3.Style.Add("background-color", "");
         lnkMenu4.Style.Add("color", "");
         lnkMenu4.Style.Add("background-color", "");
+        lnkMenu6.Style.Add("color", "");
+        lnkMenu6.Style.Add("background-color", "");
     }
 }

@@ -269,4 +269,19 @@ public class MasterBD
 
         return ds;
     }
+    static public DataSet generarGraficos()
+    {
+        // Crear la conexión con la BBDD y el comando
+        SqlConnection cnn = new SqlConnection(ConfigurationSettings.AppSettings["connectionString"]);
+        SqlDataAdapter da = new SqlDataAdapter("Index_SlistadoGraficas", cnn);
+
+        da.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+        DataSet ds = new DataSet();
+        da.Fill(ds);
+
+        // Comprobar si existe el operador indicado
+
+        return ds;
+    }
 }

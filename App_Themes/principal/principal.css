@@ -43,9 +43,15 @@ body a:hover
 }
 .menu table td
 {
+    width:150px;
     padding:0px;
+    /*background-color:White;*/
 }
-
+.menu table td:hover
+{
+    padding:0px;
+    /*background-color:#58CCF1;*/
+}
 .menu a
 {
     font-size:20px;
@@ -54,8 +60,8 @@ body a:hover
     font-weight:bold;
     text-decoration:none;
     color:Black;
-    padding-left:60px;
-    padding-right:58px;
+    padding-left:42px;
+    padding-right:42.5px;
     background-color:White;
 }
 .menu a:hover
@@ -212,4 +218,9 @@ body a:hover
 .listados table td
 {
     padding-left:15px;
+}
+.graficos
+{
+    margin-top:20px;
+    width:100%;    
 }

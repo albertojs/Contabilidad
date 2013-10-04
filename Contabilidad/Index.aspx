@@ -1,5 +1,10 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Index.aspx.cs" Inherits="_Default" Title="Contabilidad" Theme="principal" EnableSessionState="True"%>
 
+<%@ Register Assembly="System.Web.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35"
+    Namespace="System.Web.UI.DataVisualization.Charting" TagPrefix="asp" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+
 <%@ Register Src="../Controles/Menu.ascx" TagName="Menu" TagPrefix="uc1" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
@@ -114,8 +119,11 @@
                                             <asp:Label ID="lblConcepto2" runat="server" CssClass="black14b" Text="Concepto a insertar : "></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;
                                         </td>
                                         <td align="left">
+    
                                             <asp:DropDownList ID="ddlConcepto" runat="server" CssClass="black14b">
                                             </asp:DropDownList>
+                                            
+ 
                                         </td>
                                     </tr>
                                     <tr>
@@ -321,6 +329,49 @@
                                         </td>
                                     </tr>
                                 </table>
+                            </div>
+                        </asp:View>
+                        <asp:View ID="View5" runat="server">
+                            <div class="graficos" style="margin-left:100px">
+                                <asp:Chart ID="Chart1" runat="server" Width="800px" Height="400px" Palette="BrightPastel" BackColor="LightSkyBlue" BackSecondaryColor="White" BackGradientStyle="TopBottom">
+                                    <Series>
+                                        <asp:Series Name="Series1" ChartType="Column" ChartArea="ChartArea1" >
+                                        </asp:Series>
+                                    </Series>
+                                    <ChartAreas>
+                                        <asp:ChartArea Name="ChartArea1" BackSecondaryColor="BlanchedAlmond" BackColor="White" BackGradientStyle="TopBottom">
+                                        <AxisY Title="€" TextOrientation="Horizontal"></AxisY>
+                                        <AxisX LineColor="Blue" Title="Meses"></AxisX>
+                                        </asp:ChartArea>
+                                    </ChartAreas>
+                                    <Titles>
+                                        <asp:Title Text="Ingresos Anuales" TextStyle="Shadow" />
+                                    </Titles>
+                                    <BorderSkin SkinStyle="Emboss" />
+                                </asp:Chart>
+
+
+                                <asp:Chart ID="Chart2" runat="server" Width="800px" Height="400px" Palette="BrightPastel" BackColor="Silver" BackSecondaryColor="White" BackGradientStyle="TopBottom">
+                                    <Series>
+                                        <asp:Series Name="Series1" ChartType="Pie" ChartArea="ChartArea1" Legend="Default" Label="#PERCENT{P2}" LegendText="#VALX">
+                                        </asp:Series>
+                                    </Series>
+                                    <ChartAreas>
+                                        <asp:ChartArea Name="ChartArea1" BackColor="Transparent">
+                                        </asp:ChartArea>
+                                    </ChartAreas>
+                                    <Titles>
+                                        <asp:Title Text="Gastos Anuales" />
+                                    </Titles>
+                                    <Legends>
+                                        <asp:Legend Name="Default" BackSecondaryColor="White" BackColor="Gainsboro" BackGradientStyle="DiagonalLeft" />
+                                    </Legends>
+                                    <BorderSkin SkinStyle="Emboss" />
+                                </asp:Chart>
+ 
+</asp:Content>
+
+
                             </div>
                         </asp:View>
                     </asp:MultiView>
