@@ -269,13 +269,21 @@ public class MasterBD
 
         return ds;
     }
-    static public DataSet generarGraficos()
+    static public DataSet generarGraficos(DateTime fecha1,DateTime fecha2)
     {
         // Crear la conexión con la BBDD y el comando
         SqlConnection cnn = new SqlConnection(ConfigurationSettings.AppSettings["connectionString"]);
         SqlDataAdapter da = new SqlDataAdapter("Index_SlistadoGraficas", cnn);
 
         da.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+        SqlParameter pfecha1 = new SqlParameter("@fecha1", SqlDbType.DateTime);
+        pfecha1.Value = fecha1;
+        da.SelectCommand.Parameters.Add(pfecha1);
+
+        SqlParameter pfecha2 = new SqlParameter("@fecha2", SqlDbType.DateTime);
+        pfecha2.Value = fecha2;
+        da.SelectCommand.Parameters.Add(pfecha2);
 
         DataSet ds = new DataSet();
         da.Fill(ds);

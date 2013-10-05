@@ -92,6 +92,10 @@ public partial class _Default : System.Web.UI.Page
         txtFechaInicial.Text = DateTime.Now.ToShortDateString();
         txtFechaFinal.Text = DateTime.Now.ToShortDateString();
         CalendarListados.SelectedDate = DateTime.Now;
+
+        calendarioGrafico.SelectedDate = DateTime.Now;
+        txtFechaInicialGrafico.Text = DateTime.Now.ToShortDateString();
+        txtFechaFinalGrafico.Text = DateTime.Now.ToShortDateString();
     }
     protected void cargarConceptosInsertar()
     {
@@ -356,7 +360,7 @@ public partial class _Default : System.Web.UI.Page
         }
         else if (mvOpciones.ActiveViewIndex == 4)
         {
-            cargarGrafico();
+           
         }
     }
     protected void reiniciarListados()
@@ -675,21 +679,84 @@ public partial class _Default : System.Web.UI.Page
 
         }
     }
-    protected void cargarGrafico()
+    protected void btGraficos_OnClick(object sender, EventArgs e)
     {
-        DataSet ds = MasterBD.generarGraficos();
+        if (txtFechaInicialGrafico.Text.Trim() == "")
+        {
+            divError.Visible = true;
+            lblError.Text = "La fecha inicial no puede dejarse en blanco";
+        }
+        else if (txtFechaFinalGrafico.Text.Trim() == "")
+        {
+            divError.Visible = true;
+            lblError.Text = "La fecha final no puede dejarse en blanco";
+        }
+        else if (!validarFecha(txtFechaInicialGrafico.Text.Trim()))
+        {
+            divError.Visible = true;
+            lblError.Text = "El formato de la fecha inicial no es correcto ha de ser (dd/mm/aaaa)";
+        }
+        else if (!validarFecha(txtFechaFinalGrafico.Text.Trim()))
+        {
+            divError.Visible = true;
+            lblError.Text = "El formato de la fecha final no es correcto ha de ser (dd/mm/aaaa)";
+        }
+        else
+        {
+            DateTime fecha1 = Convert.ToDateTime(txtFechaInicialGrafico.Text.Trim());
+            DateTime fecha2 = Convert.ToDateTime(txtFechaFinalGrafico.Text.Trim());
+            fecha2 = fecha2.AddHours(23);
+            fecha2 = fecha2.AddMinutes(59);
+            fecha2 = fecha2.AddSeconds(59);
+            cargarGraficos(fecha1, fecha2);
+
+        }
+    }
+    protected void calendarioGrafico_OnSelectionChanged(object sender, EventArgs e)
+    {
+        if (ViewState["FECHA2"] == null)
+        {
+            ViewState["FECHA2"] = "2";
+
+            txtFechaInicialGrafico.Text = calendarioGrafico.SelectedDate.ToShortDateString();
+            txtFechaFinalGrafico.Text = calendarioGrafico.SelectedDate.ToShortDateString();
+        }
+        else if (ViewState["FECHA2"].ToString() == "1")
+        {
+            ViewState["FECHA2"] = "2";
+
+            txtFechaInicialGrafico.Text = calendarioGrafico.SelectedDate.ToShortDateString();
+            txtFechaFinalGrafico.Text = calendarioGrafico.SelectedDate.ToShortDateString();
+        }
+        else if (ViewState["FECHA2"].ToString() == "2")
+        {
+            ViewState["FECHA2"] = "1";
+            txtFechaFinalGrafico.Text = calendarioGrafico.SelectedDate.ToShortDateString();
+        }
+    }
+    protected void cargarGraficos(DateTime fecha1,DateTime fecha2)
+    {
+        DataSet ds = MasterBD.generarGraficos(fecha1,fecha2);
         DataTable dt = ds.Tables[0];
         DataView data = new DataView(dt);
 
-        Chart1.Series["Series1"].Points.DataBind(data, "Meses", "Ventas", "");
+        Chart1.Series["Beneficios"].Points.DataBind(data, "Meses", "Ventas", "");
+        Chart3.Series["Beneficios"].Points.DataBind(data, "Meses", "Ventas", "");
 
         dt = ds.Tables[1];
         data = new DataView(dt);
+        Chart1.Series["Gastos"].Points.DataBind(data, "Meses", "Ventas", "");
+        Chart4.Series["Gastos"].Points.DataBind(data, "Meses", "Ventas", "");
+
+        dt = ds.Tables[2];
+        data = new DataView(dt);
 
         Chart2.Series["Series1"].Points.DataBind(data, "concepto", "importe", "");
-        /*DataTable dt = GetSalesPerMonth();
-        DataView data = new DataView(dt);
-        Chart1.Series["Series1"].Points.DataBind(data, "Month", "Sales", "");*/
+
+        dt = ds.Tables[3];
+        data = new DataView(dt);
+        Chart5.Series["recaudacion"].Points.DataBind(data, "concepto", "importe", "");
+        
     }
 
 }

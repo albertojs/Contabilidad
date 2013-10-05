@@ -10,6 +10,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+    <script type="text/javascript" src="../Scripts/jquery.js"></script>
+    <script type="text/javascript" src="../Scripts/jsPropio.js"></script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -26,7 +28,7 @@
                         <asp:Label runat="server" ID="lblError"></asp:Label>
                     </div>
                     
-                    <asp:MultiView ID="mvOpciones" runat="server" ActiveViewIndex="0" OnActiveViewChanged="mvOpciones_OnActiveViewChanged">
+                    <asp:MultiView ID="mvOpciones" runat="server" ActiveViewIndex="4" OnActiveViewChanged="mvOpciones_OnActiveViewChanged">
                         <asp:View ID="View1" runat="server">
                             <div class="inicio">
                                 <table width="100%">
@@ -221,7 +223,7 @@
                                                         <asp:Label ID="lblFechaInicio" runat="server" CssClass="black14b" Text="Fecha Inicial"></asp:Label>
                                                     </td>
                                                     <td>
-                                                        <asp:TextBox ID="txtFechaInicial" runat="server" CssClass="black14b" Width="80px" MaxLength="10"></asp:TextBox>&nbsp;&nbsp;
+                                                        <asp:TextBox ID="txtFechaInicial" runat="server" CssClass="black14b" Width="90px" MaxLength="10"></asp:TextBox>&nbsp;&nbsp;
                                                         <asp:Label ID="lblFormatofecha1" runat="server" Text="(dd/mm/aaaa)" CssClass="black14" ForeColor="olive"></asp:Label>
                                                     </td>
                                                 </tr>
@@ -230,7 +232,7 @@
                                                         <asp:Label ID="lblFechaFinal" runat="server" CssClass="black14b" Text="Fecha Final"></asp:Label>
                                                     </td>
                                                     <td>
-                                                        <asp:TextBox ID="txtFechaFinal" runat="server" CssClass="black14b" Width="80px" MaxLength="10"></asp:TextBox>&nbsp;&nbsp;
+                                                        <asp:TextBox ID="txtFechaFinal" runat="server" CssClass="black14b" Width="90px" MaxLength="10"></asp:TextBox>&nbsp;&nbsp;
                                                         <asp:Label ID="lblFormatoFecha2" runat="server" Text="(dd/mm/aaaa)" CssClass="black14" ForeColor="olive"></asp:Label>
                                                     </td>
                                                 </tr>
@@ -332,46 +334,198 @@
                             </div>
                         </asp:View>
                         <asp:View ID="View5" runat="server">
-                            <div class="graficos" style="margin-left:100px">
-                                <asp:Chart ID="Chart1" runat="server" Width="800px" Height="400px" Palette="BrightPastel" BackColor="LightSkyBlue" BackSecondaryColor="White" BackGradientStyle="TopBottom">
-                                    <Series>
-                                        <asp:Series Name="Series1" ChartType="Column" ChartArea="ChartArea1" >
-                                        </asp:Series>
-                                    </Series>
-                                    <ChartAreas>
-                                        <asp:ChartArea Name="ChartArea1" BackSecondaryColor="BlanchedAlmond" BackColor="White" BackGradientStyle="TopBottom">
-                                        <AxisY Title="€" TextOrientation="Horizontal"></AxisY>
-                                        <AxisX LineColor="Blue" Title="Meses"></AxisX>
-                                        </asp:ChartArea>
-                                    </ChartAreas>
-                                    <Titles>
-                                        <asp:Title Text="Ingresos Anuales" TextStyle="Shadow" />
-                                    </Titles>
-                                    <BorderSkin SkinStyle="Emboss" />
-                                </asp:Chart>
-
-
-                                <asp:Chart ID="Chart2" runat="server" Width="800px" Height="400px" Palette="BrightPastel" BackColor="Silver" BackSecondaryColor="White" BackGradientStyle="TopBottom">
-                                    <Series>
-                                        <asp:Series Name="Series1" ChartType="Pie" ChartArea="ChartArea1" Legend="Default" Label="#PERCENT{P2}" LegendText="#VALX">
-                                        </asp:Series>
-                                    </Series>
-                                    <ChartAreas>
-                                        <asp:ChartArea Name="ChartArea1" BackColor="Transparent">
-                                        </asp:ChartArea>
-                                    </ChartAreas>
-                                    <Titles>
-                                        <asp:Title Text="Gastos Anuales" />
-                                    </Titles>
-                                    <Legends>
-                                        <asp:Legend Name="Default" BackSecondaryColor="White" BackColor="Gainsboro" BackGradientStyle="DiagonalLeft" />
-                                    </Legends>
-                                    <BorderSkin SkinStyle="Emboss" />
-                                </asp:Chart>
- 
-</asp:Content>
-
-
+                            <div class="graficos">
+                                    <table>
+                                    <tr>
+                                        <td align="center" colspan="2" style=" height:50px;">
+                                            <asp:Label ID="Label5" CssClass="black18b underline" runat="server" Text="Generar Gráficos"></asp:Label>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="right">
+                                            <asp:Calendar ID="calendarioGrafico" runat="server" Height="100px" DayHeaderStyle-HorizontalAlign="Center" CssClass="calendario" OnSelectionChanged="calendarioGrafico_OnSelectionChanged">
+                                                <TitleStyle BackColor="#58CCF1" ForeColor="black" Font-Size="14px" HorizontalAlign="Center" Font-Bold="true"/>
+                                                <SelectedDayStyle  BackColor="orange" HorizontalAlign="Center"/>
+                                                <DayStyle Font-Underline="false" HorizontalAlign="Center" BackColor="#F3F3F3"/>
+                                                <TodayDayStyle BackColor="#58CCF1" HorizontalAlign="Center"/>
+                                                <OtherMonthDayStyle BackColor="white"/>
+                                                <NextPrevStyle HorizontalAlign="Center" Font-Bold="true"/>
+                                                <DayHeaderStyle  BackColor="#58CCF1"/>
+                                            </asp:Calendar>
+                                        </td>
+                                        <td align="left">
+                                            <table>
+                                                <tr>
+                                                    <td>
+                                                        <asp:Label ID="Label1" runat="server" CssClass="black14b" Text="Fecha Inicial"></asp:Label>
+                                                    </td>
+                                                    <td>
+                                                        <asp:TextBox ID="txtFechaInicialGrafico" runat="server" CssClass="black14b" Width="90px" MaxLength="10"></asp:TextBox>&nbsp;&nbsp;
+                                                        <asp:Label ID="Label2" runat="server" Text="(dd/mm/aaaa)" CssClass="black14" ForeColor="olive"></asp:Label>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <asp:Label ID="Label3" runat="server" CssClass="black14b" Text="Fecha Final"></asp:Label>
+                                                    </td>
+                                                    <td>
+                                                        <asp:TextBox ID="txtFechaFinalGrafico" runat="server" CssClass="black14b" Width="90px" MaxLength="10"></asp:TextBox>&nbsp;&nbsp;
+                                                        <asp:Label ID="Label4" runat="server" Text="(dd/mm/aaaa)" CssClass="black14" ForeColor="olive"></asp:Label>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td style="padding-left:40px;">
+                                            <asp:Button ID="btGraficos" runat="server" Text="Generar gráficos" CssClass="button" Width="140px" OnClick="btGraficos_OnClick"/>
+                                        </td>
+                                    </tr>
+                                    </table>
+                                <ul id="listaGraficos">
+                                    <li id="li1">
+                                        Gráfico de Beneficios
+                                        <div id="grafico1" class="grafico">
+                                            <asp:Chart ID="Chart3" runat="server" Width="800px" Height="400px" 
+                                                BackColor="WhiteSmoke" BackSecondaryColor="224, 224, 224" 
+                                                BackGradientStyle="TopBottom">
+                                                <Series>
+                                                    <asp:Series Name="Beneficios" ChartType="StackedColumn" ChartArea="ChartArea1" 
+                                                        YValuesPerPoint="10" >
+                                                    </asp:Series>
+                                        
+                                                </Series>
+                                                <ChartAreas>
+                                                    <asp:ChartArea Name="ChartArea1" BackSecondaryColor="BlanchedAlmond" BackColor="White" BackGradientStyle="TopBottom">
+                                                    <AxisY Title="€" TextOrientation="Horizontal"></AxisY>
+                                                    <AxisX Title="Meses"></AxisX>
+                                                        <Area3DStyle Enable3D="True" />
+                                                    </asp:ChartArea>
+                                                </ChartAreas>
+                                                <Titles>
+                                                    <asp:Title Text="Beneficios" TextStyle="Shadow" 
+                                                        Font="Microsoft Sans Serif, 18pt" />
+                                                </Titles>
+                                                <Legends>
+                                                    <asp:Legend Name="Default" BackSecondaryColor="White" BackColor="Gainsboro" BackGradientStyle="DiagonalLeft" />
+                                                </Legends>
+                                                <BorderSkin SkinStyle="Emboss" />
+                                            </asp:Chart>
+                                        </div>
+                                    </li>
+                                    <li id="li2">
+                                        Gráfico de Gastos
+                                        <div id="grafico2" class="grafico">
+                                            <asp:Chart ID="Chart4" runat="server" Width="800px" Height="400px" 
+                                                BackColor="WhiteSmoke" BackSecondaryColor="224, 224, 224" 
+                                                BackGradientStyle="TopBottom">
+                                                <Series>
+                                                    <asp:Series Name="Gastos" ChartType="StackedColumn" ChartArea="ChartArea1" 
+                                                        Color="IndianRed" >
+                                                    </asp:Series>
+                                                </Series>
+                                                <ChartAreas>
+                                                    <asp:ChartArea Name="ChartArea1" BackSecondaryColor="BlanchedAlmond" BackColor="White" BackGradientStyle="TopBottom">
+                                                    <AxisY Title="€" TextOrientation="Horizontal"></AxisY>
+                                                    <AxisX Title="Meses"></AxisX>
+                                                        <Area3DStyle Enable3D="True" />
+                                                    </asp:ChartArea>
+                                                </ChartAreas>
+                                                <Titles>
+                                                    <asp:Title Text="Gastos" TextStyle="Shadow" 
+                                                        Font="Microsoft Sans Serif, 18pt" />
+                                                </Titles>
+                                                <Legends>
+                                                    <asp:Legend Name="Default" BackSecondaryColor="White" BackColor="Gainsboro" BackGradientStyle="DiagonalLeft" />
+                                                </Legends>
+                                                <BorderSkin SkinStyle="Emboss" />
+                                            </asp:Chart>
+                                        </div>
+                                    </li>
+                                    <li id="li3">
+                                        Gráfico de Ingresos y Gastos
+                                        <div id="grafico3" class="grafico">
+                                            <asp:Chart ID="Chart1" runat="server" Width="800px" Height="400px" 
+                                                BackColor="WhiteSmoke" BackSecondaryColor="224, 224, 224" 
+                                                BackGradientStyle="TopBottom">
+                                                <Series>
+                                                    <asp:Series Name="Beneficios" ChartType="StackedColumn" ChartArea="ChartArea1" 
+                                                        YValuesPerPoint="10" >
+                                                    </asp:Series>
+                                                    <asp:Series Name="Gastos" ChartType="StackedColumn" ChartArea="ChartArea1" 
+                                                        Color="IndianRed" >
+                                                    </asp:Series>
+                                                </Series>
+                                                <ChartAreas>
+                                                    <asp:ChartArea Name="ChartArea1" BackSecondaryColor="BlanchedAlmond" BackColor="White" BackGradientStyle="TopBottom">
+                                                    <AxisY Title="€" TextOrientation="Horizontal"></AxisY>
+                                                    <AxisX Title="Meses"></AxisX>
+                                                        <Area3DStyle Enable3D="True" />
+                                                    </asp:ChartArea>
+                                                </ChartAreas>
+                                                <Titles>
+                                                    <asp:Title Text="Beneficios y Gastos" TextStyle="Shadow" 
+                                                        Font="Microsoft Sans Serif, 18pt" />
+                                                </Titles>
+                                                <Legends>
+                                                    <asp:Legend Name="Default" BackSecondaryColor="White" BackColor="Gainsboro" BackGradientStyle="DiagonalLeft" />
+                                                </Legends>
+                                                <BorderSkin SkinStyle="Emboss" />
+                                            </asp:Chart>
+                                        </div>
+                                    </li>
+                                    <li id="li4">
+                                        Gráfico Top 10 Gastos
+                                        <div id="grafico4" class="grafico">
+                                            <asp:Chart ID="Chart2" runat="server" Width="800px" Height="400px" 
+                                                BackColor="WhiteSmoke" BackSecondaryColor="224, 224, 224" 
+                                                BackGradientStyle="TopBottom" >
+                                                <Series>
+                                                    <asp:Series Name="Series1" ChartType="Doughnut" ChartArea="ChartArea1" 
+                                                        Legend="Default" Label="#PERCENT{P2}" LegendText="#VALX">
+                                                    </asp:Series>
+                                                </Series>
+                                                <ChartAreas>
+                                                    <asp:ChartArea Name="ChartArea1" BackColor="Transparent">
+                                                        <Area3DStyle Enable3D="True" />
+                                                    </asp:ChartArea>
+                                                </ChartAreas>
+                                                <Titles>
+                                                    <asp:Title Text="Top 10 Gastos" TextStyle="Shadow" Font="Microsoft Sans Serif, 18pt" />
+                                                </Titles>
+                                                <Legends>
+                                                    <asp:Legend Name="Default" BackSecondaryColor="White" BackColor="Gainsboro" BackGradientStyle="DiagonalLeft" />
+                                                </Legends>
+                                                <BorderSkin SkinStyle="Emboss" />
+                                            </asp:Chart>
+                                        </div>
+                                    </li>
+                                    <li id="li5">
+                                        Gráfico Recaudación Diaria Vs Fiestas
+                                        <div id="grafico5" class="grafico">
+                                            <asp:Chart ID="Chart5" runat="server" Width="800px" Height="400px" 
+                                                BackColor="WhiteSmoke" BackSecondaryColor="224, 224, 224" 
+                                                BackGradientStyle="TopBottom">
+                                                <Series>
+                                                    <asp:Series Name="recaudacion" ChartType="Doughnut" ChartArea="ChartArea1" 
+                                                        Legend="Default" Label="#PERCENT{P2}" LegendText="#VALX">
+                                                    </asp:Series>
+                                                </Series>
+                                                <ChartAreas>
+                                                    <asp:ChartArea Name="ChartArea1" BackColor="Transparent">
+                                                        <Area3DStyle Enable3D="True" />
+                                                    </asp:ChartArea>
+                                                </ChartAreas>
+                                                <Titles>
+                                                    <asp:Title Text="Recaudación diaria VS fiestas" TextStyle="Shadow" 
+                                                        Font="Microsoft Sans Serif, 18pt" />
+                                                </Titles>
+                                                <Legends>
+                                                    <asp:Legend Name="Default" BackSecondaryColor="White" BackColor="Gainsboro" BackGradientStyle="DiagonalLeft" />
+                                                </Legends>
+                                                <BorderSkin SkinStyle="Emboss" />
+                                            </asp:Chart>
+                                        </div>
+                                    </li>
+                                </ul>
                             </div>
                         </asp:View>
                     </asp:MultiView>

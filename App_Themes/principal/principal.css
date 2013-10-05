@@ -224,3 +224,34 @@ body a:hover
     margin-top:20px;
     width:100%;    
 }
+#listaGraficos
+{
+    padding-left:0px;
+    font-size:20px;
+    list-style-type:none;
+    font-weight:bold;
+    width:100%;
+    text-align:center;
+}
+#listaGraficos li
+{
+    padding:0px;
+    border:2px solid #58CCF1;
+    border-radius:5px;
+    color:#000000;
+    cursor:pointer;
+    margin-top:10px;
+}
+#listaGraficos li:hover
+{
+    color:#C0C0C0;
+}
+.grafico
+{
+    margin-top:20px;
+    /*display:none;*/
+}
+.graficos table
+{
+    padding-left:50px;
+}
