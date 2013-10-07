@@ -758,5 +758,40 @@ public partial class _Default : System.Web.UI.Page
         Chart5.Series["recaudacion"].Points.DataBind(data, "concepto", "importe", "");
         
     }
+    protected void lnkGrafico1_OnClick(object sender, EventArgs e)
+    {
+        if (panelGrafico1.Visible == true)
+            panelGrafico1.Visible=false;
+        else
+            panelGrafico1.Visible = true;
+    }
+    protected void lnkGrafico2_OnClick(object sender, EventArgs e)
+    {
+        if (panelGrafico2.Visible == true)
+            panelGrafico2.Visible = false;
+        else
+            panelGrafico2.Visible = true;
+    }
+    protected void lnkGrafico3_OnClick(object sender, EventArgs e)
+    {
+        if (panelGrafico3.Visible == true)
+            panelGrafico3.Visible = false;
+        else
+            panelGrafico3.Visible = true;
+    }
+    protected void lnkGrafico4_OnClick(object sender, EventArgs e)
+    {
+        if (panelGrafico4.Visible == true)
+            panelGrafico4.Visible = false;
+        else
+            panelGrafico4.Visible = true;
+    }
+    protected void lnkGrafico5_OnClick(object sender, EventArgs e)
+    {
+        if (panelGrafico5.Visible == true)
+            panelGrafico5.Visible = false;
+        else
+            panelGrafico5.Visible = true;
+    }
 
 }

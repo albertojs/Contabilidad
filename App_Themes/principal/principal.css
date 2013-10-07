@@ -227,7 +227,7 @@ body a:hover
 #listaGraficos
 {
     padding-left:0px;
-    font-size:20px;
+    font-size:17px;
     list-style-type:none;
     font-weight:bold;
     width:100%;
@@ -235,14 +235,19 @@ body a:hover
 }
 #listaGraficos li
 {
-    padding:0px;
-    border:2px solid #58CCF1;
+    font-family:Arial;
+    border:1px solid #58CCF1;
     border-radius:5px;
+    padding:0px;
+}
+#listaGraficos li a
+{
     color:#000000;
     cursor:pointer;
     margin-top:10px;
+    text-decoration:none;
 }
-#listaGraficos li:hover
+#listaGraficos li a:hover
 {
     color:#C0C0C0;
 }
@@ -253,5 +258,5 @@ body a:hover
 }
 .graficos table
 {
-    padding-left:50px;
+    /*padding-left:50px;*/
 }

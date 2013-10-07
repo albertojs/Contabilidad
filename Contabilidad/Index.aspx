@@ -28,7 +28,7 @@
                         <asp:Label runat="server" ID="lblError"></asp:Label>
                     </div>
                     
-                    <asp:MultiView ID="mvOpciones" runat="server" ActiveViewIndex="4" OnActiveViewChanged="mvOpciones_OnActiveViewChanged">
+                    <asp:MultiView ID="mvOpciones" runat="server" ActiveViewIndex="0" OnActiveViewChanged="mvOpciones_OnActiveViewChanged">
                         <asp:View ID="View1" runat="server">
                             <div class="inicio">
                                 <table width="100%">
@@ -335,9 +335,9 @@
                         </asp:View>
                         <asp:View ID="View5" runat="server">
                             <div class="graficos">
-                                    <table>
+                                    <table width="100%" >
                                     <tr>
-                                        <td align="center" colspan="2" style=" height:50px;">
+                                        <td align="center" colspan="3" style=" height:50px;">
                                             <asp:Label ID="Label5" CssClass="black18b underline" runat="server" Text="Generar Gráficos"></asp:Label>
                                         </td>
                                     </tr>
@@ -353,7 +353,7 @@
                                                 <DayHeaderStyle  BackColor="#58CCF1"/>
                                             </asp:Calendar>
                                         </td>
-                                        <td align="left">
+                                        <td align="center">
                                             <table>
                                                 <tr>
                                                     <td>
@@ -375,18 +375,19 @@
                                                 </tr>
                                             </table>
                                         </td>
-                                        <td style="padding-left:40px;">
+                                        <td style="margin-left:0px; width:300px;" align="left">
                                             <asp:Button ID="btGraficos" runat="server" Text="Generar gráficos" CssClass="button" Width="140px" OnClick="btGraficos_OnClick"/>
                                         </td>
                                     </tr>
                                     </table>
                                 <ul id="listaGraficos">
                                     <li id="li1">
-                                        Gráfico de Beneficios
+                                        <asp:LinkButton ID="lnkGrafico1" runat="server" OnClick="lnkGrafico1_OnClick"> Gráfico de Beneficios</asp:LinkButton>
                                         <div id="grafico1" class="grafico">
+                                        <asp:Panel ID="panelGrafico1" runat="server" Visible="false">
                                             <asp:Chart ID="Chart3" runat="server" Width="800px" Height="400px" 
                                                 BackColor="WhiteSmoke" BackSecondaryColor="224, 224, 224" 
-                                                BackGradientStyle="TopBottom">
+                                                BackGradientStyle="TopBottom" ViewStateMode="Enabled"  EnableViewState="true">
                                                 <Series>
                                                     <asp:Series Name="Beneficios" ChartType="StackedColumn" ChartArea="ChartArea1" 
                                                         YValuesPerPoint="10" >
@@ -409,14 +410,16 @@
                                                 </Legends>
                                                 <BorderSkin SkinStyle="Emboss" />
                                             </asp:Chart>
+                                            </asp:Panel>
                                         </div>
                                     </li>
                                     <li id="li2">
-                                        Gráfico de Gastos
+                                        <asp:LinkButton ID="lnkGrafico2" runat="server" OnClick="lnkGrafico2_OnClick">Gráfico de Gastos</asp:LinkButton>
                                         <div id="grafico2" class="grafico">
+                                        <asp:Panel ID="panelGrafico2" runat="server" Visible="false">
                                             <asp:Chart ID="Chart4" runat="server" Width="800px" Height="400px" 
                                                 BackColor="WhiteSmoke" BackSecondaryColor="224, 224, 224" 
-                                                BackGradientStyle="TopBottom">
+                                                BackGradientStyle="TopBottom"  ViewStateMode="Enabled"  EnableViewState="true">
                                                 <Series>
                                                     <asp:Series Name="Gastos" ChartType="StackedColumn" ChartArea="ChartArea1" 
                                                         Color="IndianRed" >
@@ -438,14 +441,16 @@
                                                 </Legends>
                                                 <BorderSkin SkinStyle="Emboss" />
                                             </asp:Chart>
+                                            </asp:Panel>
                                         </div>
                                     </li>
                                     <li id="li3">
-                                        Gráfico de Ingresos y Gastos
+                                        <asp:LinkButton ID="lnkGrafico3" runat="server" OnClick="lnkGrafico3_OnClick">Gráfico de Ingresos y Gastos</asp:LinkButton>
                                         <div id="grafico3" class="grafico">
+                                            <asp:Panel ID="panelGrafico3" runat="server" Visible="false">
                                             <asp:Chart ID="Chart1" runat="server" Width="800px" Height="400px" 
                                                 BackColor="WhiteSmoke" BackSecondaryColor="224, 224, 224" 
-                                                BackGradientStyle="TopBottom">
+                                                BackGradientStyle="TopBottom"  ViewStateMode="Enabled"  EnableViewState="true">
                                                 <Series>
                                                     <asp:Series Name="Beneficios" ChartType="StackedColumn" ChartArea="ChartArea1" 
                                                         YValuesPerPoint="10" >
@@ -470,14 +475,16 @@
                                                 </Legends>
                                                 <BorderSkin SkinStyle="Emboss" />
                                             </asp:Chart>
+                                            </asp:Panel>
                                         </div>
                                     </li>
                                     <li id="li4">
-                                        Gráfico Top 10 Gastos
+                                        <asp:LinkButton ID="lnkGrafico4" runat="server" OnClick="lnkGrafico4_OnClick">Gráfico Top 10 Gastos</asp:LinkButton>
                                         <div id="grafico4" class="grafico">
+                                        <asp:Panel ID="panelGrafico4" runat="server" Visible="false">
                                             <asp:Chart ID="Chart2" runat="server" Width="800px" Height="400px" 
                                                 BackColor="WhiteSmoke" BackSecondaryColor="224, 224, 224" 
-                                                BackGradientStyle="TopBottom" >
+                                                BackGradientStyle="TopBottom"  ViewStateMode="Enabled"  EnableViewState="true">
                                                 <Series>
                                                     <asp:Series Name="Series1" ChartType="Doughnut" ChartArea="ChartArea1" 
                                                         Legend="Default" Label="#PERCENT{P2}" LegendText="#VALX">
@@ -496,14 +503,16 @@
                                                 </Legends>
                                                 <BorderSkin SkinStyle="Emboss" />
                                             </asp:Chart>
+                                            </asp:Panel>
                                         </div>
                                     </li>
                                     <li id="li5">
-                                        Gráfico Recaudación Diaria Vs Fiestas
+                                        <asp:LinkButton ID="lnkGrafico5" runat="server" OnClick="lnkGrafico5_OnClick">Gráfico Recaudación Diaria Vs Fiestas</asp:LinkButton>
                                         <div id="grafico5" class="grafico">
+                                        <asp:Panel ID="panelGrafico5" runat="server" Visible="false">
                                             <asp:Chart ID="Chart5" runat="server" Width="800px" Height="400px" 
                                                 BackColor="WhiteSmoke" BackSecondaryColor="224, 224, 224" 
-                                                BackGradientStyle="TopBottom">
+                                                BackGradientStyle="TopBottom"  ViewStateMode="Enabled" EnableViewState="true">
                                                 <Series>
                                                     <asp:Series Name="recaudacion" ChartType="Doughnut" ChartArea="ChartArea1" 
                                                         Legend="Default" Label="#PERCENT{P2}" LegendText="#VALX">
@@ -523,6 +532,7 @@
                                                 </Legends>
                                                 <BorderSkin SkinStyle="Emboss" />
                                             </asp:Chart>
+                                            </asp:Panel>
                                         </div>
                                     </li>
                                 </ul>

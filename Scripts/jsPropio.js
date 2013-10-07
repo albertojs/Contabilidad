@@ -1,5 +1,5 @@
 ﻿
-jQuery(document).ready(function () {
+/*jQuery(document).ready(function () {
 
     jQuery("li#li1").click(function () {
         jQuery("div#grafico1").hide("medium");
@@ -16,4 +16,4 @@ jQuery(document).ready(function () {
     jQuery("li#li5").click(function () {
         jQuery("div#grafico5").slideToggle("medium");
     });
-});
+});*/
