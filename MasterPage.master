@@ -1,0 +1,48 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage"%>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <asp:ContentPlaceHolder id="head" runat="server">
+
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div id="globalContent">
+        
+        <div id="cabeceraFija">
+            <div id="sombraCabeceraSuperior"></div>
+                <div id="cabecera">
+                    <h3>Contabilidad</h3><h4>Usuario: <span><asp:Label ID="lblNombreUsuarioConectado" runat="server" Text=""></asp:Label></span></h4>
+                    <ul>
+                        <a  href="~/Contabilidad/inicio.aspx" runat="server"><li id="a1">Inicio</li></a>
+                        <a  href="~/Contabilidad/entradaSalida.aspx" runat="server"><li id="a2">Entrada/Salida</li></a>
+                        <a  href="~/Contabilidad/conceptos.aspx" runat="server"><li id="a3">Conceptos</li></a>
+                        <a  href="~/Contabilidad/listados.aspx" runat="server"><li id="a4">Listados</li></a>
+                        <a  href="~/Contabilidad/graficos.aspx" runat="server"><li id="a5">Gráficos</li></a>
+                        <a  href="~/Contabilidad/inicio.aspx" runat="server"><li id="a6" class="salir">Salir</li></a>
+                    </ul>
+                </div>
+            <div id="sombraCabecera"></div>
+        </div>
+        
+
+        <div id="divError" runat="server"  visible="false" class="error">
+            <asp:Label runat="server" ID="lblError"></asp:Label>
+        </div>
+
+        <div id="bodyMaster">
+            <div id="bodyContent">
+                <asp:ContentPlaceHolder id="body" runat="server">
+        
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+
+        <div id="footer"></div>
+    </div>
+    </form>
+</body>
+</html>

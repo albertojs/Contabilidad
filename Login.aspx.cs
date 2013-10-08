@@ -50,9 +50,10 @@ public partial class Login : System.Web.UI.Page
 
                 if (password == ds.Tables[0].Rows[0][1].ToString())
                 {
+                    Session.Clear();
                     int id_operador = Convert.ToInt32(ds.Tables[0].Rows[0][2].ToString());
-
-                    Response.Redirect("Contabilidad/Index.aspx?search="+id_operador.ToString());
+                    Session["ID_OPERADOR"] = id_operador;
+                    Response.Redirect("Contabilidad/inicio.aspx");
                 }
                 else
                 {

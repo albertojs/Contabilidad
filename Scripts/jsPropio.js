@@ -1,19 +1,34 @@
 ﻿
-/*jQuery(document).ready(function () {
+jQuery(document).ready(function () {
 
-    jQuery("li#li1").click(function () {
-        jQuery("div#grafico1").hide("medium");
+    jQuery("li#a1").css({ "background-color": "#4dbbe5", "color": "White" });
+
+    jQuery("li#a1").click(function () {
+        jQuery("div#globalContent").fadeOut("fast");
+
     });
-    jQuery("li#li2").click(function () {
-        jQuery("div#grafico2").slideToggle("medium");
+    jQuery("li#a2").click(function () {
+        jQuery("div#globalContent").fadeOut("fast");
+
     });
-    jQuery("li#li3").click(function () {
-        jQuery("div#grafico3").slideToggle("medium");
+    jQuery("li#a3").click(function () {
+        jQuery("div#globalContent").fadeOut("fast");
+
     });
-    jQuery("li#li4").click(function () {
-        jQuery("div#grafico4").slideToggle("medium");
+    jQuery("li#a4").click(function () {
+        jQuery("div#globalContent").fadeOut("fast");
+
     });
-    jQuery("li#li5").click(function () {
-        jQuery("div#grafico5").slideToggle("medium");
+    jQuery("li#a5").click(function () {
+        jQuery("div#globalContent").fadeOut("fast");
+
     });
-});*/
+
+    jQuery(window).scroll(function () {
+
+        jQuery("div#sombraCabeceraSuperior").css({ "position": "fixed", "top": "0px" });
+        jQuery("div#cabecera").css({ "position": "fixed", "left": "342px","top":"4px" });
+        jQuery("div#sombraCabecera").css({ "position": "fixed", "top": "74px" });
+    });
+
+});
