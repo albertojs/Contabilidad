@@ -16,7 +16,8 @@
 }
 #sombraCabeceraSuperior
 {
-    position:relative;
+    position:fixed;
+    top:0px;
     height:0px;
     padding:0px;
     width:100%;
@@ -25,6 +26,9 @@
 }
 #cabecera
 {
+    position:fixed;
+    top:4px;
+    left:342px;
     width:980px;
     margin:0 auto;
     height:70px;
@@ -104,8 +108,8 @@
 }
 #sombraCabecera
 {
-    position:relative;
-    
+    position:fixed;
+    top:74px;
     width:100%;
     padding:0px;
     margin:0px;
@@ -140,7 +144,7 @@
     margin:0 auto;
     /*border:1px solid #000;*/
     /*min-height:775px;*/
-    min-height:1775px;
+    min-height:1275px;
 }
 #footer
 {
@@ -162,7 +166,7 @@
 }
 #inicio p
 {
-    margin-top:35px;
+    margin-top:40px;
     font-size:20px;
     text-align:center;
 }
@@ -198,4 +202,136 @@
     color:#303030;
     border:2px solid #D0D0D0;
     border-radius:5px;
+}
+#entradaSalida
+{
+    position:relative;
+    padding:0px;
+}
+#entradaSalida p
+{
+    margin-top:40px;
+    font-size:20px;
+    text-align:center;
+}
+.calendarioEntradaSalida
+{
+    color:#404040;
+    width:200px;
+}
+.calendarioEntradaSalida a
+{
+    text-decoration:none;
+}
+#calendarioEntradaSalida
+{
+    border:2px solid #606060;
+    border-radius:3px;
+    box-shadow:0px 0px 15px #505050;
+}
+#formEntradasSalidas
+{
+    padding:25px;
+    margin:0px auto;
+    width:750px;
+    border:0px solid #606060;
+    border-radius:3px;
+    box-shadow:0px 0px 15px #505050;
+}
+#formEntradasSalidas ul
+{
+    margin-top:25px;
+    margin-left:20px;
+    padding:0px;
+}
+#formEntradasSalidas ul li
+{
+    display:inline-block;
+    list-style-type:none;
+}
+#formEntradasSalidas ul li ul
+{
+    position:relative;
+    top:-35px;
+    margin-left:40px;
+    padding:0px;
+}
+#formEntradasSalidas ul li ul li
+{
+    padding:0px;
+    display:list-item;
+    margin-bottom:12px;
+    font-size:17px;
+}
+.rblEntradasSalidas
+{
+    position:relative;
+    top:6px;
+    color:#404040;
+    font-weight:bold;
+    font-size:12px;
+    display:inline-block;
+}
+.botonEntradaSalida
+{
+    background-color:#4f7ed1;
+    color:White;
+    width:100px;
+    border:none;
+    font-size:15px;
+    height:30px;
+    cursor:pointer;
+    vertical-align:middle;
+    border-radius:3px;
+    font-weight:bold;
+}
+.error
+{
+    position:fixed;
+    top:78px;
+    color:#DE011A;
+    font-size:18px;
+    width:960px;
+    text-align:center;
+    font-weight:bold;
+    z-index:5;
+    background-color:White;
+    opacity:0.90;
+    filter:alpha(opacity=90);
+}
+.error2
+{
+    position:fixed;
+    top:78px;
+    border:solid 3px #DE011A;
+    color:#DE011A;
+    font-size:18px;
+    width:960px;
+    text-align:center;
+    font-weight:bold;
+    z-index:5;
+    background-color:White;
+    opacity:0.90;
+    filter:alpha(opacity=90);
+    display:block;
+}
+.correcto
+{
+   position:fixed;
+    top:78px;
+    border:solid 3px #4f7ed1;
+    color:#4f7ed1;
+    font-size:18px;
+    width:99.7%;
+    text-align:center;
+    font-weight:bold;
+    z-index:5;
+    background-color:White;
+    opacity:0.90;
+    filter:alpha(opacity=90);
+}
+.listSearchExtender
+{
+    font-size:12px;
+    color:#606060;
 }

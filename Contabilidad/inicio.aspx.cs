@@ -15,17 +15,20 @@ public partial class Contabilidad_inicio : System.Web.UI.Page
         {
             try
             {
-                //comprobarSesion();
+                comprobarSesion();
                 cargarDatosIniciales();
-                /*cargarDatosFijos();
-                cargarConceptos();
-                cargarTipoConceptos();
-                cargarConceptoListados();*/
             }
             catch
             {
                 Response.Redirect("../Login.aspx");
             }
+        }
+    }
+    protected void comprobarSesion()
+    {
+        if (Session["ID_OPERADOR"] == null)
+        {
+            Response.Redirect("../Login.aspx");
         }
     }
     protected void cargarDatosIniciales()
@@ -34,23 +37,17 @@ public partial class Contabilidad_inicio : System.Web.UI.Page
         DataSet ds = new DataSet();
         try
         {
-            if (Session["ID_OPERADOR"] == null)
-            {
-                Response.Redirect("../Login.aspx");
-            }
-            else
-            {
-                
-                int id_operador = Convert.ToInt32(Session["ID_OPERADOR"]);
-                ds = MasterBD.cargarDatosIniciales(id_operador);
+
+            int id_operador = Convert.ToInt32(Session["ID_OPERADOR"]);
+            ds = MasterBD.cargarDatosIniciales(id_operador);
 
 
-                Label nombreUsuario = (Label)Master.FindControl("lblNombreUsuarioConectado");
-                nombreUsuario.Text = ds.Tables[0].Rows[0][0].ToString();
-                Session["NOMBRE_OPERADOR"] = nombreUsuario.Text;
-                gvInicio.DataSource = ds.Tables[1];
-                gvInicio.DataBind();
-            }
+            Label nombreUsuario = (Label)Master.FindControl("lblNombreUsuarioConectado");
+            nombreUsuario.Text = ds.Tables[0].Rows[0][0].ToString();
+            Session["NOMBRE_OPERADOR"] = nombreUsuario.Text;
+            gvInicio.DataSource = ds.Tables[1];
+            gvInicio.DataBind();
+           
         }
         catch
         {

@@ -1,0 +1,38 @@
+﻿body {
+}
+
+.orange
+{
+    color:#ffb400;
+}
+.lightGrey
+{
+    color:#606060;
+}
+.darkGrey
+{
+    color:#404040;
+}
+.darkGreyB
+{
+    color:#404040;
+    font-weight:bold;
+}
+.lightBlue
+{
+    color:#4dbbe5;
+}
+.darkBlue
+{
+    color:#4f7ed1;
+}
+.darkGreyB14
+{
+    color:#404040;
+    font-weight:bold;
+    font-size:14px;
+}
+.red
+{
+    color:#DE011A;
+}

@@ -16,7 +16,7 @@
         <p>Últimos Movimientos de Caja</p>
         <div id="divGvInicio">
             <asp:GridView ID="gvInicio" runat="server" AutoGenerateColumns="false" GridLines="Horizontal" OnRowDataBound="gvInicio_OnRowDatBound" DataKeyNames="id_caja">
-                <HeaderStyle BackColor="#4dbbe5" HorizontalAlign="Left"/>
+                <HeaderStyle BackColor="#FFB400"  HorizontalAlign="Left"/>
                 <Columns>
                     <asp:BoundField DataField="id_caja" Visible="false" />
                     <asp:BoundField  DataField="fecha_caja" HeaderText="Fecha"  ItemStyle-Font-Bold="true"/>

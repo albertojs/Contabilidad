@@ -28,11 +28,6 @@
             <div id="sombraCabecera"></div>
         </div>
         
-
-        <div id="divError" runat="server"  visible="false" class="error">
-            <asp:Label runat="server" ID="lblError"></asp:Label>
-        </div>
-
         <div id="bodyMaster">
             <div id="bodyContent">
                 <asp:ContentPlaceHolder id="body" runat="server">
