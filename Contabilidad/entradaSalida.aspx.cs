@@ -64,15 +64,8 @@ public partial class Contabilidad_entradaSalida : System.Web.UI.Page
     protected void btGuardarInsercionCaja_OnClick(object sender, EventArgs e)
     {
 
-        /*HtmlControl divError = (HtmlControl)Page.FindControl("divError");*/
-        //divError.Attributes.CssStyle.Add("display","block");
-        //divError.Visible = true;
-        divError.Visible = true;
-        lblError.Text = "Es obligatorio seleccionar un Tipo de Concepto a Insertar";
-        /*if (rblTipoConcepto.SelectedIndex == -1)
+        if (rblTipoConcepto.SelectedIndex == -1)
         {
-            //divError.Attributes.CssStyle.Add("visibility", "visible");
-            //Master.FindControl("divError").Visible = true;
             divError.Visible = true;
             lblError.Text="Es obligatorio seleccionar un Tipo de Concepto a Insertar";
         }
@@ -113,7 +106,7 @@ public partial class Contabilidad_entradaSalida : System.Web.UI.Page
             lblError.Text = "El movimiento de caja se ha guardado correctamente";
 
             divError.Attributes["class"] = "correcto";
-        }*/
+        }
 
     }
     protected void reiniciarDatos()

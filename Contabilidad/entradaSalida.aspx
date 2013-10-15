@@ -61,14 +61,15 @@
                             
                                         </li>
                                         <li>
-                                            <asp:Label ID="lblConcepto2" runat="server" CssClass="black14b" Text="Concepto a insertar : "></asp:Label>
-                                            <asp:DropDownList ID="ddlConcepto" runat="server" CssClass="black14b">
+                                            <asp:Label ID="lblConcepto2" runat="server" CssClass="lightGrey" Text="Concepto a insertar : "></asp:Label>
+                                            <asp:DropDownList ID="ddlConcepto" runat="server" CssClass="darkGreyB">
                                             </asp:DropDownList>
-                                            
+                                            <asp:ListSearchExtender ID="ListSearchExtender1" runat="server" TargetControlID="ddlConcepto" PromptCssClass="listSearchExtender" PromptText="Buscar...">
+                                            </asp:ListSearchExtender>
                                         </li>
                                         <li>
-                                            <asp:Label ID="lblImporte" runat="server" CssClass="black14b" Text="Importe de la Entrada/Salida : "></asp:Label>
-                                            <asp:TextBox ID="txtImporte" runat="server" CssClass="black14b" Width="150px"></asp:TextBox>
+                                            <asp:Label ID="lblImporte" runat="server" CssClass="lightGrey" Text="Importe de la Entrada/Salida : "></asp:Label>
+                                            <asp:TextBox ID="txtImporte" runat="server" CssClass="darkGreyB" Width="150px"></asp:TextBox>
                                         </li>
                                         <li>
                                             <asp:Button ID="btGuardarInsercionCaja" runat="server" Text="Guardar" CssClass="botonEntradaSalida" OnClick="btGuardarInsercionCaja_OnClick"/>
