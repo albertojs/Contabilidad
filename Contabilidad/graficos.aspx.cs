@@ -12,15 +12,31 @@ public partial class Contabilidad_graficos : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
-            cargarDatosIniciales();
             comprobarSesion();
+            cargarDatosIniciales();
+            
         }
     }
     protected void cargarDatosIniciales()
     {
+        try
+        {
+
+            int id_operador = Convert.ToInt32(Session["ID_OPERADOR"]);
+            
+            Label nombreUsuario = (Label)Master.FindControl("lblNombreUsuarioConectado");
+            nombreUsuario.Text = Session["NOMBRE_OPERADOR"].ToString();
+            
+        }
+        catch
+        {
+            Response.Redirect("../Login.aspx");
+        }
+
         calendarioGrafico.SelectedDate = DateTime.Now;
         txtFechaInicialGrafico.Text = DateTime.Now.ToShortDateString();
         txtFechaFinalGrafico.Text = DateTime.Now.ToShortDateString();
+
     }
     protected void comprobarSesion()
     {

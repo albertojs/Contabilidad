@@ -11,4 +11,10 @@ public partial class MasterPage : System.Web.UI.MasterPage
     {
 
     }
+    protected void lnkSalir_OnClick(object sender, EventArgs e)
+    {
+        Session["NOMBRE_OPERADOR"] = null;
+        Session["ID_OPERADOR"] = null;
+        Response.Redirect("~/login.aspx");
+    }
 }

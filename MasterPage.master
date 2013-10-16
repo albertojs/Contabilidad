@@ -22,7 +22,7 @@
                         <a  href="~/Contabilidad/conceptos.aspx" runat="server"><li id="a3">Conceptos</li></a>
                         <a  href="~/Contabilidad/listados.aspx" runat="server"><li id="a4">Listados</li></a>
                         <a  href="~/Contabilidad/graficos.aspx" runat="server"><li id="a5">Gráficos</li></a>
-                        <a  href="~/Contabilidad/inicio.aspx" runat="server"><li id="a6" class="salir">Salir</li></a>
+                        <asp:LinkButton ID="lnkSalir" runat="server" ForeColor="#606060" OnClick="lnkSalir_OnClick"><li id="a6" class="salir">Salir</li></asp:LinkButton>
                     </ul>
                 </div>
             <div id="sombraCabecera"></div>

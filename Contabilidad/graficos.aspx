@@ -13,9 +13,9 @@
 
 
 <asp:Content ContentPlaceHolderID="body" runat="server">
-
-    <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
-    </asp:ToolkitScriptManager>
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
+   
 
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
@@ -87,7 +87,7 @@
                                 BackColor="WhiteSmoke" BackSecondaryColor="224, 224, 224" 
                                 BackGradientStyle="TopBottom" ViewStateMode="Enabled"  EnableViewState="true">
                                 <Series>
-                                    <asp:Series Name="Beneficios" ChartType="StackedColumn" ChartArea="ChartArea1" 
+                                    <asp:Series Name="Beneficios" ChartType="StackedColumn" ChartArea="ChartArea1"
                                         YValuesPerPoint="10" >
                                     </asp:Series>
                                         

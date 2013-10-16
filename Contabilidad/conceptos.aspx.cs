@@ -14,6 +14,7 @@ public partial class Contabilidad_conceptos : System.Web.UI.Page
         if (!IsPostBack)
         {
             comprobarSesion();
+            cargarDatosIniciales();
             cargarConceptos();
             cargarTipoConceptos();
         }
@@ -21,6 +22,22 @@ public partial class Contabilidad_conceptos : System.Web.UI.Page
     protected void comprobarSesion()
     {
         if (Session["ID_OPERADOR"] == null)
+        {
+            Response.Redirect("../Login.aspx");
+        }
+    }
+    protected void cargarDatosIniciales()
+    {
+        try
+        {
+
+            int id_operador = Convert.ToInt32(Session["ID_OPERADOR"]);
+
+            Label nombreUsuario = (Label)Master.FindControl("lblNombreUsuarioConectado");
+            nombreUsuario.Text = Session["NOMBRE_OPERADOR"].ToString();
+
+        }
+        catch
         {
             Response.Redirect("../Login.aspx");
         }

@@ -9,6 +9,11 @@
 {
     color:#606060;
 }
+.lightGreyB
+{
+    color:#606060;
+    font-weight:bold;
+}
 .darkGrey
 {
     color:#404040;
@@ -35,4 +40,13 @@
 .red
 {
     color:#DE011A;
+}
+.white
+{
+    color:White;
+}
+.whiteB
+{
+    color:White;
+    font-weight:bold;
 }

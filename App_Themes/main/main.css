@@ -28,15 +28,18 @@
 {
     position:fixed;
     top:4px;
-    left:342px;
+    left:-490px;
     width:980px;
-    margin:0 auto;
+    margin-left:50%;
+    
     height:70px;
     /*border:1px solid #000;*/
-    background-color:White;
+    /*background-color:White;*/
     z-index:15;
-    opacity:0.90;
-    filter:alpha(opacity=90);
+    opacity:0.95;
+    filter:alpha(opacity=95);
+    background-image:url(../img/banner5.jpg);
+    background-position:top right;
 }
 #cabecera h3
 {
@@ -46,6 +49,8 @@
     margin:0px;
     display:inline;
     top:7px;
+    color:#404040;
+    font-weight:bold;
 }
 #cabecera h4
 {
@@ -53,6 +58,7 @@
     padding:0px;
     margin-left:650px;
     display:inline;
+    color:White;
 }
 #cabecera h4 span
 {
@@ -66,9 +72,11 @@
     margin:0px;
     list-style:none;
     display:inline-block;
+   
 }
 #cabecera ul li
 {
+    border-top-left-radius:8px;
     border-top-right-radius:8px;
     border-top:2px solid #4f7ed1;
     border-left:2px solid #4f7ed1;
@@ -79,13 +87,14 @@
     width:130px;
     text-align:center;
     box-shadow:4px -2px 9px rgba(0, 0, 0, 0.3);
+    background-color:White;
 }
 #cabecera ul li:hover
 {
-    border-top:2px solid #4dbbe5;
-    border-left:2px solid #4dbbe5;
-    border-right:2px solid #4dbbe5;
-    background-color:#4dbbe5;
+    border-top:2px solid #4f7ed1;
+    border-left:2px solid #4f7ed1;
+    border-right:2px solid #4f7ed1;
+    background-color:#4f7ed1;
     color:White;
     box-shadow:4px -2px 9px rgba(0, 0, 0, 0.6);
 }
@@ -124,15 +133,27 @@
 }
 #cabeceraFija
 {
-    height:70px;
-    background-color::transparent;
+    position:fixed;
+    top:0px;
+    width:100%;
+    height:74px;
+    background-color:White;
+    z-index:13;
+    opacity:0.90;
+    filter:alpha(opacity=90);
+    margin:0 auto;
+    /*background-image:url(../img/banner4Mini.jpg);
+    background-repeat:repeat-x;*/
+    background-color:#fecd1a;
     
+
 }
 #bodyMaster
 {
     width:100%;
     padding:0px;
     margin:0px;
+    margin-top:100px;
     /*border-top:1px solid #4f7ed1;
     box-shadow:0px -10px 8px #4f7ed1;*/
 }
@@ -296,6 +317,11 @@
     vertical-align:middle;
     border-radius:3px;
     font-weight:bold;
+    box-shadow:0px 0px 9px rgba(0, 0, 0, 0.6);
+}
+.botonEntradaSalida:hover
+{
+    box-shadow:0px 0px 9px rgba(0, 0, 0, 0.8);
 }
 .error
 {
@@ -482,4 +508,115 @@
     top:-120px;
     margin-left:50px;
     display:none;
+    width:800px;
+}
+#listados
+{
+    position:relative;
+    padding:0px;
+}
+#listados p
+{
+    margin-top:40px;
+    font-size:20px;
+    text-align:center;
+}
+#formListados
+{
+    padding:25px;
+    margin:0px auto;
+    width:900px;
+    border:0px solid #606060;
+    border-radius:3px;
+    box-shadow:0px 0px 15px #505050;
+    height:620px;
+}
+#formListados ul
+{
+    width:400px;
+    margin-top:25px;
+    margin-left:0px;
+    padding:0px;
+}
+#formListados ul li
+{
+    list-style-type:none;
+    margin-top:20px;
+}
+#loginPrincipal
+{
+    width:980px;
+    margin:0 auto;
+}
+#loginPrincipal2
+{
+    position:relative;
+    top:100px;
+    border-radius:10px;
+    border:15px solid #404040;
+    box-shadow:0px 0px 15px rgba(0, 0, 0, 0.8);
+    height:400px;
+    background-image:url(../img/fondo.jpg);
+    background-position:left bottom;
+    /*opacity:0.70;
+    filter:alpha(opacity=70);*/
+    z-index:1;
+}
+#loginPrincipal2 p
+{
+    margin-top:30px;
+    font-size:25px;
+    text-align:center;
+    font-weight:bold;
+    color:White;
+}
+#contenedorLogin
+{
+    position:relative;
+    top:20px;
+    left:235px;
+    border-radius:10px;
+    border:5px solid #FFF;
+    box-shadow:0px 0px 9px rgba(0, 0, 0, 0.8);
+    width:450px;
+    height:200px;
+    text-align:center;
+    z-index:5;
+    background-image:url(../img/fondo2.jpg);
+    background-position:top left;
+    opacity:0.90;
+    filter:alpha(opacity=90);
+}
+#contenedorLogin ul
+{
+    padding:0px;
+    margin:0px;
+    padding-top:30px;
+ 
+}
+#contenedorLogin ul li
+{
+    padding:0px;
+    margin:0px;
+    list-style:none;
+    margin-top:20px;
+}
+.errorLogin
+{
+    position:absolute;
+    top:80px;
+    color:#DE011A;
+    font-size:18px;
+    width:960px;
+    text-align:center;
+    font-weight:bold;
+    z-index:5;
+    
+}
+#login
+{
+    position:absolute;
+    width:100%;
+    background-color:#F0F0F0;
+    height:100%;
 }
