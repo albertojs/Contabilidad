@@ -1,17 +1,22 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="inicio.aspx.cs" Inherits="Contabilidad_inicio"  MasterPageFile="~/MasterPage.master" Theme="main"%>
-
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 
 
 <asp:Content ContentPlaceHolderID="head" runat="server">
     <title>
         Contabilidad - Inicio
     </title>
+    
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" type="text/javascript"></script>
     <script src="../Scripts/jsPropio.js" type="text/javascript"></script>
+
 </asp:Content>
 
 
 <asp:Content ContentPlaceHolderID="body" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
+
     <div id="inicio">
         <p>Últimos Movimientos de Caja</p>
         <div id="divGvInicio">

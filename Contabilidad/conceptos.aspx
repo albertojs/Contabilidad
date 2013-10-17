@@ -15,8 +15,8 @@
 
 <asp:Content ContentPlaceHolderID="body" runat="server">
 
-     <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server">
-    </asp:ToolkitScriptManager>
+     <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
         

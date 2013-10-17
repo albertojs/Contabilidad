@@ -15,7 +15,10 @@
         <div id="cabeceraFija">
             <div id="sombraCabeceraSuperior"></div>
                 <div id="cabecera">
-                    <h3>Contabilidad</h3><h4>Usuario: <span><asp:Label ID="lblNombreUsuarioConectado" runat="server" Text=""></asp:Label></span></h4>
+                        <h3 id="logo">Contabilidad</h3>
+                        <div id="usuarioConectado">
+                            <h4>Usuario: <span><asp:Label ID="lblNombreUsuarioConectado" runat="server" Text=""></asp:Label></span></h4>
+                        </div>
                     <ul>
                         <a  href="~/Contabilidad/inicio.aspx" runat="server"><li id="a1">Inicio</li></a>
                         <a  href="~/Contabilidad/entradaSalida.aspx" runat="server"><li id="a2">Entrada/Salida</li></a>

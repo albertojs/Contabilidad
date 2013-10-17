@@ -17,7 +17,7 @@ jQuery(document).ready(function () {
     else if (document.title == "Contabilidad - Gráficos") {
         jQuery("li#a5").css({ "background-color": "#4f7ed1", "color": "White", "border-top": "2px solid #4f7ed1", "border-left": "2px solid #4f7ed1", "border-right": "2px solid #4f7ed1" });
     }
-    
+
 
     var prm = Sys.WebForms.PageRequestManager.getInstance();
     prm.add_endRequest(function () {
@@ -25,7 +25,12 @@ jQuery(document).ready(function () {
     });
 
 
-    
+    /*jQuery("div#usuarioConectado").slideToggle(800);*/
+    jQuery("div#usuarioConectado").fadeTo("slow", 0.1);
+    jQuery("div#usuarioConectado").fadeTo("slow", 1);
+    jQuery("#logo").fadeTo("slow", 0.1);
+    jQuery("#logo").fadeTo("slow", 1);
+
 
 });
 
@@ -71,5 +76,10 @@ function pageLoad() {
         jQuery("div#grafico1").slideUp("small");
 
     });
+
+
+    
+    
+
 }
 
