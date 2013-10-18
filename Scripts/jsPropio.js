@@ -26,10 +26,13 @@ jQuery(document).ready(function () {
 
 
     /*jQuery("div#usuarioConectado").slideToggle(800);*/
-    jQuery("div#usuarioConectado").fadeTo("slow", 0.1);
+    /*jQuery("div#usuarioConectado").fadeTo("slow", 0.1);
     jQuery("div#usuarioConectado").fadeTo("slow", 1);
     jQuery("#logo").fadeTo("slow", 0.1);
-    jQuery("#logo").fadeTo("slow", 1);
+    jQuery("#logo").fadeTo("slow", 1);*/
+    
+    jQuery("#bodyContent").fadeTo("slow", 1);
+    jQuery("div#usuarioConectado").fadeTo(1500, 1);
 
 
 });

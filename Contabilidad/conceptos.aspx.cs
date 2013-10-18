@@ -11,9 +11,11 @@ public partial class Contabilidad_conceptos : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+
+        comprobarSesion();
+
         if (!IsPostBack)
         {
-            comprobarSesion();
             cargarDatosIniciales();
             cargarConceptos();
             cargarTipoConceptos();

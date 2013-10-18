@@ -12,9 +12,10 @@ public partial class Contabilidad_entradaSalida : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        comprobarSesion();
+
         if (!IsPostBack)
-        {
-            comprobarSesion();
+        {    
             cargarDatosIniciales();
             cargarTipoConceptos();
         }

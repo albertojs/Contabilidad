@@ -10,11 +10,10 @@ public partial class Contabilidad_graficos : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        comprobarSesion();
         if (!IsPostBack)
         {
-            comprobarSesion();
-            cargarDatosIniciales();
-            
+           cargarDatosIniciales();    
         }
     }
     protected void cargarDatosIniciales()

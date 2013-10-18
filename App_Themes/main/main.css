@@ -194,6 +194,7 @@
     /*border:1px solid #000;*/
     /*min-height:775px;*/
     min-height:1275px;
+    display:none;
 }
 #footer
 {

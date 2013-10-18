@@ -11,11 +11,11 @@ public partial class Contabilidad_inicio : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        comprobarSesion();
         if (!IsPostBack)
         {
             try
             {
-                comprobarSesion();
                 cargarDatosIniciales();
             }
             catch

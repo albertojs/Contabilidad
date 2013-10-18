@@ -29,10 +29,79 @@
 
                 <div id="formListados"> 
 
+                    
+                        <asp:Calendar ID="CalendarListados" runat="server" Height="100px" DayHeaderStyle-HorizontalAlign="Center" CssClass="calendario" OnSelectionChanged="CalendarListados_OnSelectionChanged">
+                            <TitleStyle BackColor="#58CCF1" ForeColor="black" Font-Size="14px" HorizontalAlign="Center" Font-Bold="true"/>
+                            <SelectedDayStyle  BackColor="orange" HorizontalAlign="Center"/>
+                            <DayStyle Font-Underline="false" HorizontalAlign="Center" BackColor="#F3F3F3"/>
+                            <TodayDayStyle BackColor="#58CCF1" HorizontalAlign="Center"/>
+                            <OtherMonthDayStyle BackColor="white"/>
+                            <NextPrevStyle HorizontalAlign="Center" Font-Bold="true"/>
+                            <DayHeaderStyle  BackColor="#58CCF1"/>
+                        </asp:Calendar>
+                        
+                            <asp:Label ID="lblFechaInicio" runat="server" CssClass="black14b" Text="Fecha Inicial"></asp:Label>
+                        
+                            <asp:TextBox ID="txtFechaInicial" runat="server" CssClass="black14b" Width="90px" MaxLength="10"></asp:TextBox>&nbsp;&nbsp;
+                            <asp:Label ID="lblFormatofecha1" runat="server" Text="(dd/mm/aaaa)" CssClass="black14" ForeColor="olive"></asp:Label>
+                        
+                            <asp:Label ID="lblFechaFinal" runat="server" CssClass="black14b" Text="Fecha Final"></asp:Label>
+                        
+                            <asp:TextBox ID="txtFechaFinal" runat="server" CssClass="black14b" Width="90px" MaxLength="10"></asp:TextBox>&nbsp;&nbsp;
+                            <asp:Label ID="lblFormatoFecha2" runat="server" Text="(dd/mm/aaaa)" CssClass="black14" ForeColor="olive"></asp:Label>
+                        
+                            <asp:Label ID="lblTipoConceptoListados" runat="server" CssClass="black14b" Text="Selecciona el Tipo de Concepto a listar : "></asp:Label>
+                        
+                            <asp:RadioButtonList ID="rblTipoConceptoListados" runat="server" RepeatDirection="Horizontal"  CssClass="black14b">
+                            </asp:RadioButtonList>
+                        
+                    
+                            <asp:Label ID="lblConceptoListados" runat="server" CssClass="black14b" Text="Selecciona el Concepto a listar : "></asp:Label>
+                    
+                            <asp:DropDownList ID="ddlConceptoListados" runat="server" CssClass="black14b" AutoPostBack="true" OnSelectedIndexChanged="ddlConceptoListados_OnSelectedIndexChanged">
+                            </asp:DropDownList>
+                    
+                            <asp:ListBox ID="lbConceptos" runat="server" Width="200px" Height="200px" 
+                            onselectedindexchanged="lbConceptos_SelectedIndexChanged" AutoPostBack="true" Enabled="false"></asp:ListBox>
+                    
+                            <asp:Button ID="btListados" runat="server" Text="Generar Listado" CssClass="button" Width="140px" OnClick="btListados_OnClick"/>
+                    
+                            <asp:Label ID="lblRelativoCaja1" runat="server" Text="" CssClass="black18b"></asp:Label>
+                            <asp:Label ID="lblRelativoCaja2" runat="server" Text="" CssClass="black18b"></asp:Label>
+                    
+                            <asp:Label ID="lblTotalCaja1" runat="server" Text="Estado Total de la caja hasta la fecha :  " CssClass="black18b"></asp:Label>
+                            <asp:Label ID="lblTotalCaja2" runat="server" Text="" CssClass="black18b"></asp:Label>
+                    
+                            <div id="divConfirmacionEliminarMovimientoCaja" runat="server" visible="false" style=" margin-top:20px; margin-bottom:20px;">
+                                <asp:Label ID="lblConfirmacionEliminarMovimientoCaja" runat="server" CssClass="black16b" ForeColor="red" Text="¿Estas Seguro de eliminar el movimiento de caja?"></asp:Label>&nbsp;&nbsp;&nbsp;
+                                <asp:LinkButton ID="lnkEliminarMovimientoCajaYes" runat="server" Text="Si" Font-Bold="true" Font-Size="18px" OnClick="lnkEliminarMovimientoCajaYes_OnClick"></asp:LinkButton>&nbsp;|&nbsp;
+                                <asp:LinkButton ID="lnkEliminarMovimientoCajaNo" runat="server" Text="No" Font-Bold="true" Font-Size="18px" OnClick="lnkEliminarMovimientoCajaNo_OnClick"></asp:LinkButton>
+                            </div>
+                    
+                            <asp:GridView ID="gvListados" runat="server" Width="100%" AutoGenerateColumns="false" GridLines="Horizontal" OnRowDataBound="gvListados_OnRowDatBound" OnRowCommand="gvListados_OnRowCommand" DataKeyNames="id_caja">
+                                    <HeaderStyle CssClass="black15b" BackColor="#58CCF1" HorizontalAlign="Left"/>
+                                    <Columns>
+                                        <asp:BoundField DataField="id_caja" Visible="false" />
+                                        <asp:BoundField  DataField="fecha_caja" HeaderText="Fecha" ItemStyle-CssClass="black13" ItemStyle-HorizontalAlign="Left" ItemStyle-Font-Bold="true"/>
+                                        <asp:BoundField  DataField="nombre_persona" HeaderText="Operador" ItemStyle-CssClass="black13" ItemStyle-HorizontalAlign="Left" ItemStyle-Font-Bold="true"/>
+                                        <asp:BoundField  DataField="nombre_concepto" HeaderText="Concepto" ItemStyle-CssClass="black13" ItemStyle-HorizontalAlign="Left" ItemStyle-Font-Bold="true"/>
+                                        <asp:BoundField  DataField="nombre_tipo_concepto" HeaderText="Tipo Concepto" ItemStyle-CssClass="black13" ItemStyle-HorizontalAlign="Left" ItemStyle-Font-Bold="true"/>
+                                        <asp:BoundField  DataField="importe" HeaderText="Importe (€)" ItemStyle-CssClass="black15" ItemStyle-HorizontalAlign="Left" ItemStyle-Font-Bold="true"/>
+                                        <asp:CommandField ButtonType="Link" SelectText="X" DeleteText="Eliminar" EditText="Editar" InsertText="Insertar" ShowSelectButton="true" ItemStyle-Font-Size="14px" HeaderStyle-Width="15px" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="15px" />
+                                    </Columns>
+                            </asp:GridView>
+                    
+                            <asp:ImageButton ID="ibListadoWord" runat="server" ImageUrl="~/App_Themes/img/word.gif" OnClick="ibListadoWord_OnClick" ToolTip="Sacar Listado"/>
+                    
+                    
+
                 </div>
 
             </div>
         </ContentTemplate>
+        <Triggers>
+            <asp:PostBackTrigger  ControlID="ibListadoWord"/>
+        </Triggers>
     </asp:UpdatePanel>
 
 

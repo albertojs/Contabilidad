@@ -195,7 +195,7 @@ public class MasterBD
 
         return ds;
     }
-    static public DataSet generarListados(DateTime fecha_inicial, DateTime fecha_final, int id_tipo_concepto, String concepto, String concepto2, String concepto3)
+    static public DataSet generarListados(DateTime fecha_inicial, DateTime fecha_final, int id_tipo_concepto, String consulta, String consulta2)
     {
         // Crear la conexión con la BBDD y el comando
         SqlConnection cnn = new SqlConnection(ConfigurationSettings.AppSettings["connectionString"]);
@@ -216,17 +216,14 @@ public class MasterBD
         da.SelectCommand.Parameters.Add(pid_tipo_concepto);
 
 
-        SqlParameter pconcepto = new SqlParameter("@concepto", SqlDbType.VarChar);
-        pconcepto.Value = concepto;
-        da.SelectCommand.Parameters.Add(pconcepto);
+        SqlParameter pconsulta = new SqlParameter("@consulta", SqlDbType.NVarChar);
+        pconsulta.Value = consulta;
+        da.SelectCommand.Parameters.Add(pconsulta);
 
-        SqlParameter pconcepto2 = new SqlParameter("@concepto2", SqlDbType.VarChar);
-        pconcepto2.Value = concepto2;
-        da.SelectCommand.Parameters.Add(pconcepto2);
+        SqlParameter pconsulta2 = new SqlParameter("@consulta2", SqlDbType.NVarChar);
+        pconsulta2.Value = consulta2;
+        da.SelectCommand.Parameters.Add(pconsulta2);
 
-        SqlParameter pconcepto3 = new SqlParameter("@concepto3", SqlDbType.VarChar);
-        pconcepto3.Value = concepto3;
-        da.SelectCommand.Parameters.Add(pconcepto3);
 
         DataSet ds = new DataSet();
         da.Fill(ds);

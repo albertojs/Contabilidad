@@ -303,7 +303,8 @@ public partial class _Default : System.Web.UI.Page
             concepto3 = "null";
         }
 
-        DataSet ds = MasterBD.generarListados(fecha1, fecha2, id_tipo_concepto,concepto,concepto2,concepto3);
+        //DataSet ds = MasterBD.generarListados(fecha1, fecha2, id_tipo_concepto,concepto,concepto2,concepto3);
+        DataSet ds = new DataSet();
         gvListados.DataSource = ds.Tables[0];
         gvListados.DataBind();
 
@@ -501,8 +502,8 @@ public partial class _Default : System.Web.UI.Page
             ViewState["ID_TIPO_CONCEPTO"] = id_tipo_concepto;
             ViewState["CONCEPTO"] = concepto;
 
-            DataSet ds = MasterBD.generarListados(fecha1, fecha2, id_tipo_concepto,concepto,concepto2,concepto3);
-
+            //DataSet ds = MasterBD.generarListados(fecha1, fecha2, id_tipo_concepto,concepto,concepto2,concepto3);
+            DataSet ds = new DataSet();
             gvListados.DataSource = ds.Tables[0];
             gvListados.DataBind();
 
