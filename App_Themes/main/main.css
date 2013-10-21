@@ -181,6 +181,7 @@
     margin-top:100px;
     /*border-top:1px solid #4f7ed1;
     box-shadow:0px -10px 8px #4f7ed1;*/
+	min-height:1275px;
 }
 .salir
 {
@@ -193,7 +194,7 @@
     margin:0 auto;
     /*border:1px solid #000;*/
     /*min-height:775px;*/
-    min-height:1275px;
+    /*min-height:1275px;*/
     display:none;
 }
 #footer
@@ -242,6 +243,7 @@
 #divGvInicio table tr:hover
 {
     background-color:#F0F0F0;
+	font-weight:Bold;
 }
 .totalCaja
 {
@@ -556,19 +558,34 @@
     border:0px solid #606060;
     border-radius:3px;
     box-shadow:0px 0px 15px #505050;
-    height:620px;
+    
 }
-#formListados ul
+#calendarioListados
 {
+    margin-top:10px;
+    margin-left:30px;
+    width:218px;
+    border:2px solid #606060;
+    border-radius:3px;
+    box-shadow:0px 0px 15px #505050;
+}
+#formListados2
+{
+    position:relative;
+    top:-180px;
+    left:340px;
     width:400px;
-    margin-top:25px;
-    margin-left:0px;
+  
+} 
+#formListados2 ul
+{
+    list-style:none;
     padding:0px;
 }
-#formListados ul li
+#formListados2 ul li
 {
-    list-style-type:none;
-    margin-top:20px;
+    padding:0px;
+    margin-top:25px;
 }
 #loginPrincipal
 {

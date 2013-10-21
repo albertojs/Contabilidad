@@ -24,6 +24,9 @@ public partial class Contabilidad_listados : System.Web.UI.Page
         Label nombreUsuario = (Label)Master.FindControl("lblNombreUsuarioConectado");
         nombreUsuario.Text = Session["NOMBRE_OPERADOR"].ToString();
 
+        txtFechaFinal.Text = DateTime.Now.ToShortDateString();
+        txtFechaFinal.Text = DateTime.Now.ToShortDateString();
+
     }
     protected void comprobarSesion()
     {

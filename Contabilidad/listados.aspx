@@ -29,42 +29,64 @@
 
                 <div id="formListados"> 
 
-                    
-                        <asp:Calendar ID="CalendarListados" runat="server" Height="100px" DayHeaderStyle-HorizontalAlign="Center" CssClass="calendario" OnSelectionChanged="CalendarListados_OnSelectionChanged">
-                            <TitleStyle BackColor="#58CCF1" ForeColor="black" Font-Size="14px" HorizontalAlign="Center" Font-Bold="true"/>
-                            <SelectedDayStyle  BackColor="orange" HorizontalAlign="Center"/>
-                            <DayStyle Font-Underline="false" HorizontalAlign="Center" BackColor="#F3F3F3"/>
-                            <TodayDayStyle BackColor="#58CCF1" HorizontalAlign="Center"/>
+                    <div id="calendarioListados">
+                        <asp:Calendar ID="CalendarListados" runat="server" Height="100px" DayHeaderStyle-HorizontalAlign="Center" CssClass="calendarioEntradaSalida" OnSelectionChanged="CalendarListados_OnSelectionChanged">
+                            <TitleStyle BackColor="#ffb400" ForeColor="black" Font-Size="14px" HorizontalAlign="Center" Font-Bold="true"/>
+                            <SelectedDayStyle  BackColor="#4dbbe5" HorizontalAlign="Center"/>
+                            <DayStyle Font-Underline="false" HorizontalAlign="Center" BackColor="White"/>
+                            <TodayDayStyle BackColor="#ffb400" HorizontalAlign="Center"/>
                             <OtherMonthDayStyle BackColor="white"/>
                             <NextPrevStyle HorizontalAlign="Center" Font-Bold="true"/>
-                            <DayHeaderStyle  BackColor="#58CCF1"/>
+                            <DayHeaderStyle  BackColor="#ffb400"/>
                         </asp:Calendar>
+                    </div>
                         
-                            <asp:Label ID="lblFechaInicio" runat="server" CssClass="black14b" Text="Fecha Inicial"></asp:Label>
+                    <div id="formListados2">
+                        <ul>
+                            <li>
+                                <asp:Label ID="lblFechaInicio" runat="server" CssClass="lightGrey" Text="Fecha Inicial" Width="150px"></asp:Label>
                         
-                            <asp:TextBox ID="txtFechaInicial" runat="server" CssClass="black14b" Width="90px" MaxLength="10"></asp:TextBox>&nbsp;&nbsp;
-                            <asp:Label ID="lblFormatofecha1" runat="server" Text="(dd/mm/aaaa)" CssClass="black14" ForeColor="olive"></asp:Label>
+                                <asp:TextBox ID="txtFechaInicial" runat="server" CssClass="darkGreyB" Width="90px" MaxLength="10"></asp:TextBox>&nbsp;&nbsp;
+                                <asp:Label ID="lblFormatofecha1" runat="server" Text="(dd/mm/aaaa)" CssClass="darkBlue"></asp:Label>
+                            </li>
+                            <li>
+                                <asp:Label ID="lblFechaFinal" runat="server" CssClass="lightGrey" Text="Fecha Final" Width="150px"></asp:Label>
                         
-                            <asp:Label ID="lblFechaFinal" runat="server" CssClass="black14b" Text="Fecha Final"></asp:Label>
+                                <asp:TextBox ID="txtFechaFinal" runat="server" CssClass="darkGreyB" Width="90px" MaxLength="10"></asp:TextBox>&nbsp;&nbsp;
+                                <asp:Label ID="lblFormatoFecha2" runat="server" Text="(dd/mm/aaaa)" CssClass="darkBlue"></asp:Label>
+                            </li>
+                            <li>
+                                <asp:Label ID="lblTipoConceptoListados" runat="server" CssClass="lightGrey" Text="Tipos de concepto: " Width="150px"></asp:Label>
                         
-                            <asp:TextBox ID="txtFechaFinal" runat="server" CssClass="black14b" Width="90px" MaxLength="10"></asp:TextBox>&nbsp;&nbsp;
-                            <asp:Label ID="lblFormatoFecha2" runat="server" Text="(dd/mm/aaaa)" CssClass="black14" ForeColor="olive"></asp:Label>
+                                <asp:RadioButtonList ID="rblTipoConceptoListados" runat="server" RepeatDirection="Horizontal"  CssClass="darkGreyB" Font-Size="12px">
+                                </asp:RadioButtonList>
+                            </li>
+                            <li>
+                                <asp:Label ID="lblConceptoListados" runat="server" CssClass="black14b" Text="Conceptos específicos: " Width="180px"></asp:Label>
+                    
+                                <asp:DropDownList ID="ddlConceptoListados" runat="server" CssClass="darkGreyB" AutoPostBack="true" OnSelectedIndexChanged="ddlConceptoListados_OnSelectedIndexChanged">
+                                </asp:DropDownList>
+                            </li>
+                            <li>
+                                <asp:ListBox ID="lbConceptos" runat="server" Width="200px" Height="150px" 
+                                onselectedindexchanged="lbConceptos_SelectedIndexChanged" AutoPostBack="true" Enabled="false" CssClass="darkGreyB"></asp:ListBox>
+                            </li>
+                            <li>
+                                <asp:Button ID="btListados" runat="server" Text="Generar Listado" CssClass="botonEntradaSalida" Width="140px" OnClick="btListados_OnClick"/>
+                            </li>
+                        </ul>
+                    </div>   
                         
-                            <asp:Label ID="lblTipoConceptoListados" runat="server" CssClass="black14b" Text="Selecciona el Tipo de Concepto a listar : "></asp:Label>
+                            
                         
-                            <asp:RadioButtonList ID="rblTipoConceptoListados" runat="server" RepeatDirection="Horizontal"  CssClass="black14b">
-                            </asp:RadioButtonList>
+                            
                         
                     
-                            <asp:Label ID="lblConceptoListados" runat="server" CssClass="black14b" Text="Selecciona el Concepto a listar : "></asp:Label>
+                            
                     
-                            <asp:DropDownList ID="ddlConceptoListados" runat="server" CssClass="black14b" AutoPostBack="true" OnSelectedIndexChanged="ddlConceptoListados_OnSelectedIndexChanged">
-                            </asp:DropDownList>
+                            
                     
-                            <asp:ListBox ID="lbConceptos" runat="server" Width="200px" Height="200px" 
-                            onselectedindexchanged="lbConceptos_SelectedIndexChanged" AutoPostBack="true" Enabled="false"></asp:ListBox>
-                    
-                            <asp:Button ID="btListados" runat="server" Text="Generar Listado" CssClass="button" Width="140px" OnClick="btListados_OnClick"/>
+                            
                     
                             <asp:Label ID="lblRelativoCaja1" runat="server" Text="" CssClass="black18b"></asp:Label>
                             <asp:Label ID="lblRelativoCaja2" runat="server" Text="" CssClass="black18b"></asp:Label>
