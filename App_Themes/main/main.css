@@ -181,7 +181,7 @@
     margin-top:100px;
     /*border-top:1px solid #4f7ed1;
     box-shadow:0px -10px 8px #4f7ed1;*/
-	min-height:1275px;
+	min-height:900px;
 }
 .salir
 {
@@ -543,11 +543,11 @@
 {
     position:relative;
     padding:0px;
+    margin-bottom:35px;
 }
 #listados p
 {
     margin-top:40px;
-    font-size:20px;
     text-align:center;
 }
 #formListados
@@ -557,8 +557,7 @@
     width:900px;
     border:0px solid #606060;
     border-radius:3px;
-    box-shadow:0px 0px 15px #505050;
-    
+    box-shadow:0px 0px 15px #505050;    
 }
 #calendarioListados
 {
@@ -572,9 +571,9 @@
 #formListados2
 {
     position:relative;
-    top:-180px;
+    top:-215px;
     left:340px;
-    width:400px;
+    width:550px;
   
 } 
 #formListados2 ul
@@ -585,7 +584,117 @@
 #formListados2 ul li
 {
     padding:0px;
-    margin-top:25px;
+    margin-top:10px;
+}
+#liListados
+{
+    height:20px;
+}
+.word
+{
+    margin-left:20px;
+    vertical-align:middle;
+}
+.lbConceptos
+{
+    margin-left:185px;
+    color:#404040;
+    font-weight:bold;
+}
+.rblTipoConceptoListados
+{
+    position:relative;
+    top:-22px;
+    left:160px;
+    color:#404040;
+    font-weight:bold;
+}
+.botonListados
+{
+    background-color:#4f7ed1;
+    color:White;
+    width:100px;
+    border:none;
+    font-size:15px;
+    height:30px;
+    cursor:pointer;
+    vertical-align:middle;
+    border-radius:3px;
+    font-weight:bold;
+    box-shadow:0px 0px 9px rgba(0, 0, 0, 0.6);
+    margin-left:185px;
+}
+.botonListados:hover
+{
+    box-shadow:0px 0px 9px rgba(0, 0, 0, 0.8);
+}
+#ctl00_body_divGvListados
+{
+    position:relative;
+    top:-220px;
+    /*width:100%;*/
+    margin:0 auto;
+    
+}
+.totalCaja2
+{
+    width:900px;
+    position:relative;
+    top:-20px;
+    color:#303030;
+    border:2px solid #D0D0D0;
+    border-radius:5px;
+    font-size:18px;
+}
+.lnkEliminarCaja
+{
+    text-decoration:none;
+    color:#404040;
+}
+.lnkEliminarCaja:hover
+{
+    color:#4f7ed1;
+}
+.filaSeleccionada
+{
+    background-color:#F0F0F0;
+}
+#divGvListados2
+{
+    border:4px solid #606060;
+    border-radius:5px;
+    min-width:900px;
+    box-shadow:3px -1px 15px #505050;
+    max-height:700px;
+    overflow:auto;
+}
+#divGvListados2 table
+{   
+    width:100%;
+    cursor:default;
+}
+#divGvListados2 table tr,td
+{
+    text-align:center;
+    color:#404040;
+    
+}
+#divGvListados2 table tr:hover
+{
+    background-color:#F0F0F0;
+	font-weight:Bold;
+}
+#divGvListados2 table a
+{   
+    color:#404040;
+    font-weight:bold;
+    text-decoration:none;
+}
+#divGvListados2 table a:hover
+{   
+    color:#4f7ed1;
+    font-weight:bold;
+    text-decoration:none;
 }
 #loginPrincipal
 {
@@ -662,4 +771,9 @@
     position:absolute;
     width:100%;
     height:100%;
+}
+.listSearchExtender
+{
+    color:#404040;
+    font-size:12px;
 }

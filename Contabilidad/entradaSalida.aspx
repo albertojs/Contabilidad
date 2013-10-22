@@ -61,13 +61,13 @@
                             
                                         </li>
                                         <li>
-                                            <asp:Label ID="lblConcepto2" runat="server" CssClass="lightGrey" Text="Concepto a insertar : "></asp:Label>
+                                            <asp:Label ID="lblConcepto2" runat="server" CssClass="lightGrey" Text="Concepto a insertar : " Width="220px"></asp:Label>
                                             <asp:DropDownList ID="ddlConcepto" runat="server" CssClass="darkGreyB">
                                             </asp:DropDownList>
                                             
                                         </li>
                                         <li>
-                                            <asp:Label ID="lblImporte" runat="server" CssClass="lightGrey" Text="Importe de la Entrada/Salida : "></asp:Label>
+                                            <asp:Label ID="lblImporte" runat="server" CssClass="lightGrey" Text="Importe de la Entrada/Salida : " Width="220px"></asp:Label>
                                             <asp:TextBox ID="txtImporte" runat="server" CssClass="darkGreyB" Width="150px"></asp:TextBox>
                                         </li>
                                         <li>

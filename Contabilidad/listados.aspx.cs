@@ -18,13 +18,14 @@ public partial class Contabilidad_listados : System.Web.UI.Page
             cargarTipoConceptos();
             cargarConceptoListados();
         }
+        divError.Visible = false;
     }
     protected void cargarDatosIniciales()
     {
         Label nombreUsuario = (Label)Master.FindControl("lblNombreUsuarioConectado");
         nombreUsuario.Text = Session["NOMBRE_OPERADOR"].ToString();
 
-        txtFechaFinal.Text = DateTime.Now.ToShortDateString();
+        txtFechaInicial.Text = DateTime.Now.ToShortDateString();
         txtFechaFinal.Text = DateTime.Now.ToShortDateString();
 
     }
@@ -193,6 +194,7 @@ public partial class Contabilidad_listados : System.Web.UI.Page
             gvListados.DataSource = ds.Tables[0];
             gvListados.DataBind();
 
+            lblTotalCaja1.Text = "Estado Total de la caja hasta la fecha :  ";
             lblRelativoCaja1.Text = "Caja entre el " + txtFechaInicial.Text.Trim() + " y el " + txtFechaFinal.Text.Trim() + " : ";
             
 
@@ -233,6 +235,11 @@ public partial class Contabilidad_listados : System.Web.UI.Page
                 lblTotalCaja2.Text = ds.Tables[2].Rows[0][0].ToString() + "  €";
             }
         }
+
+        divError.Visible = true;
+        lblError.Text = "Se ha generado el listado";
+        divError.Attributes["class"] = "correcto";
+
         visibilidadListado(true);
     }
     protected void visibilidadListado(Boolean a)
@@ -241,10 +248,11 @@ public partial class Contabilidad_listados : System.Web.UI.Page
         lblRelativoCaja2.Visible = a;
         lblTotalCaja1.Visible = a;
         lblTotalCaja2.Visible = a;
+        divGvListados.Visible = a;
     }
     protected void lnkEliminarMovimientoCajaYes_OnClick(object sender, EventArgs e)
     {
-        /*int id_caja = Convert.ToInt32(ViewState["ID_CAJA"]);
+        int id_caja = Convert.ToInt32(ViewState["ID_CAJA"]);
         MasterBD.eliminarMovimientoCaja(id_caja);
 
         DateTime fecha1 = Convert.ToDateTime(ViewState["FECHA_INICIAL"]);
@@ -254,45 +262,65 @@ public partial class Contabilidad_listados : System.Web.UI.Page
         fecha2.AddMinutes(59);
         fecha2.AddSeconds(59);
 
+
         int id_tipo_concepto = Convert.ToInt32(ViewState["ID_TIPO_CONCEPTO"]);
-        String concepto = ViewState["CONCEPTO"].ToString();
-        String concepto2 = "";
+        String consulta = ViewState["CONSULTA1"].ToString();
+        String consulta2 = ViewState["CONSULTA2"].ToString();
 
-        String concepto3 = "";
 
-        DataSet ds = MasterBD.generarListados(fecha1, fecha2, id_tipo_concepto, concepto, concepto2, concepto3);
+        DataSet ds = MasterBD.generarListados(fecha1, fecha2, id_tipo_concepto,consulta,consulta2);
         gvListados.DataSource = ds.Tables[0];
         gvListados.DataBind();
+
+
+        if (ds.Tables[1].Rows[0][0].ToString() == "")
+        {
+            lblRelativoCaja2.Text = "0  €";
+
+        }
+        else
+        {
+            if (Convert.ToDecimal(ds.Tables[1].Rows[0][0].ToString()) < 0)
+            {
+                lblRelativoCaja2.ForeColor = Color.Red;
+            }
+            else
+            {
+                lblRelativoCaja2.ForeColor = Color.Blue;
+            }
+
+            lblRelativoCaja2.Text = ds.Tables[1].Rows[0][0].ToString() + "  €";
+        }
+
+        if (ds.Tables[2].Rows[0][0].ToString() == "")
+        {
+            lblTotalCaja2.Text = "0  €";
+        }
+        else
+        {
+            if (Convert.ToDecimal(ds.Tables[2].Rows[0][0].ToString()) < 0)
+            {
+                lblTotalCaja2.ForeColor = Color.Red;
+            }
+            else
+            {
+                lblTotalCaja2.ForeColor = Color.Blue;
+            }
+
+            lblTotalCaja2.Text = ds.Tables[2].Rows[0][0].ToString() + "  €";
+        }
+
 
         divError.Visible = true;
         divError.Attributes["class"] = "correcto";
         lblError.Text = "El movimiento de caja se ha eliminado correctamente";
         divConfirmacionEliminarMovimientoCaja.Visible = false;
 
-        for (int i = 0; i < gvListados.Rows.Count; i++)
-        {
-            gvListados.Rows[Convert.ToInt32(i)].Cells[1].BackColor = Color.White;
-            gvListados.Rows[Convert.ToInt32(i)].Cells[2].BackColor = Color.White;
-            gvListados.Rows[Convert.ToInt32(i)].Cells[3].BackColor = Color.White;
-            gvListados.Rows[Convert.ToInt32(i)].Cells[4].BackColor = Color.White;
-            gvListados.Rows[Convert.ToInt32(i)].Cells[5].BackColor = Color.White;
-            gvListados.Rows[Convert.ToInt32(i)].Cells[6].BackColor = Color.White;
-        }*/
     }
     protected void lnkEliminarMovimientoCajaNo_OnClick(object sender, EventArgs e)
     {
         divConfirmacionEliminarMovimientoCaja.Visible = false;
-
-
-        for (int i = 0; i < gvListados.Rows.Count; i++)
-        {
-            gvListados.Rows[Convert.ToInt32(i)].Cells[1].BackColor = Color.White;
-            gvListados.Rows[Convert.ToInt32(i)].Cells[2].BackColor = Color.White;
-            gvListados.Rows[Convert.ToInt32(i)].Cells[3].BackColor = Color.White;
-            gvListados.Rows[Convert.ToInt32(i)].Cells[4].BackColor = Color.White;
-            gvListados.Rows[Convert.ToInt32(i)].Cells[5].BackColor = Color.White;
-            gvListados.Rows[Convert.ToInt32(i)].Cells[6].BackColor = Color.White;
-        }
+        gvListados.Rows[Convert.ToInt32(ViewState["FILA"])].CssClass = "";
     }
     protected void gvListados_OnRowDatBound(object sender, GridViewRowEventArgs e)
     {
@@ -317,24 +345,9 @@ public partial class Contabilidad_listados : System.Web.UI.Page
             int id_caja = Convert.ToInt32(gvListados.DataKeys[Convert.ToInt32(e.CommandArgument)].Values[0]);
             divConfirmacionEliminarMovimientoCaja.Visible = true;
             ViewState["ID_CAJA"] = id_caja;
-
-
-            for (int i = 0; i < gvListados.Rows.Count; i++)
-            {
-                gvListados.Rows[Convert.ToInt32(i)].Cells[1].BackColor = Color.White;
-                gvListados.Rows[Convert.ToInt32(i)].Cells[2].BackColor = Color.White;
-                gvListados.Rows[Convert.ToInt32(i)].Cells[3].BackColor = Color.White;
-                gvListados.Rows[Convert.ToInt32(i)].Cells[4].BackColor = Color.White;
-                gvListados.Rows[Convert.ToInt32(i)].Cells[5].BackColor = Color.White;
-                gvListados.Rows[Convert.ToInt32(i)].Cells[6].BackColor = Color.White;
-            }
-
-            gvListados.Rows[Convert.ToInt32(e.CommandArgument)].Cells[1].BackColor = Color.AliceBlue;
-            gvListados.Rows[Convert.ToInt32(e.CommandArgument)].Cells[2].BackColor = Color.AliceBlue;
-            gvListados.Rows[Convert.ToInt32(e.CommandArgument)].Cells[3].BackColor = Color.AliceBlue;
-            gvListados.Rows[Convert.ToInt32(e.CommandArgument)].Cells[4].BackColor = Color.AliceBlue;
-            gvListados.Rows[Convert.ToInt32(e.CommandArgument)].Cells[5].BackColor = Color.AliceBlue;
-            gvListados.Rows[Convert.ToInt32(e.CommandArgument)].Cells[6].BackColor = Color.AliceBlue;
+            ViewState["FILA"] = Convert.ToInt32(e.CommandArgument);
+            gvListados.Rows[Convert.ToInt32(e.CommandArgument)].CssClass = "filaSeleccionada";
+           
         }
     }
     protected void ibListadoWord_OnClick(object sender, EventArgs e)

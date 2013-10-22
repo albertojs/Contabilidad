@@ -46,12 +46,12 @@
                                 <ul>
                                     <li>
                                         <asp:Label ID="Label1" runat="server" CssClass="lightGrey" Text="Fecha Inicial" Width="150px"></asp:Label>
-                                        <asp:TextBox ID="txtFechaInicialGrafico" runat="server" CssClass="darkGreyB" Width="80px" MaxLength="10"></asp:TextBox>&nbsp;&nbsp;
+                                        <asp:TextBox ID="txtFechaInicialGrafico" runat="server" CssClass="darkGreyB" Width="90px" MaxLength="10"></asp:TextBox>&nbsp;&nbsp;
                                         <asp:Label ID="Label2" runat="server" Text="(dd/mm/aaaa)" CssClass="darkBlue" ></asp:Label>
                                     </li>
                                     <li>
                                         <asp:Label ID="Label3" runat="server" CssClass="lightGrey" Text="Fecha Final" Width="150px"></asp:Label>    
-                                        <asp:TextBox ID="txtFechaFinalGrafico" runat="server" CssClass="darkGreyB" Width="80px" MaxLength="10"></asp:TextBox>&nbsp;&nbsp;
+                                        <asp:TextBox ID="txtFechaFinalGrafico" runat="server" CssClass="darkGreyB" Width="90px" MaxLength="10"></asp:TextBox>&nbsp;&nbsp;
                                         <asp:Label ID="Label4" runat="server" Text="(dd/mm/aaaa)" CssClass="darkBlue"></asp:Label>    
                                     </li>
                                     <li id="liBoton">

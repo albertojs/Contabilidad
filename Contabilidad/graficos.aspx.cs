@@ -15,6 +15,7 @@ public partial class Contabilidad_graficos : System.Web.UI.Page
         {
            cargarDatosIniciales();    
         }
+        divError.Visible = false;
     }
     protected void cargarDatosIniciales()
     {

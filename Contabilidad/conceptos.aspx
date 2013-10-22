@@ -32,11 +32,11 @@
                             
                             <ul>
                                 <li>
-                                    <asp:Label ID="lblNombreConcepto" runat="server" CssClass="lightGrey" Text="Nombre del Concepto : "></asp:Label>
+                                    <asp:Label ID="lblNombreConcepto" runat="server" CssClass="lightGrey" Text="Nombre del Concepto : " Width="180px"></asp:Label>
                                     <asp:TextBox ID="txtNombreConcepto" MaxLength="1000" runat="server" Width="200px" CssClass="darkGreyB"></asp:TextBox>
                                 </li>
                                 <li>
-                                    <asp:Label ID="lblTipoConcepto" runat="server" Text="Tipo de Concepto :" CssClass="lightGrey"></asp:Label>        
+                                    <asp:Label ID="lblTipoConcepto" runat="server" Text="Tipo de Concepto :" CssClass="lightGrey" Width="180px"></asp:Label>        
                                     <asp:DropDownList ID="ddlTipoConcepto" runat="server" CssClass="darkGreyB">
                                     </asp:DropDownList>    
                                 </li>
