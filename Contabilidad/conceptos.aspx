@@ -15,7 +15,7 @@
 
 <asp:Content ContentPlaceHolderID="body" runat="server">
 
-     <asp:ScriptManager ID="ScriptManager1" runat="server">
+     <asp:ScriptManager ID="ScriptManager1" runat="server" ScriptMode="Release">
     </asp:ScriptManager>
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>

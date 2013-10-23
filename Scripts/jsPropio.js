@@ -45,6 +45,7 @@ function pageLoad() {
         jQuery("div#grafico3").slideUp("small");
         jQuery("div#grafico4").slideUp("small");
         jQuery("div#grafico5").slideUp("small");
+        jQuery("div#grafico6").slideUp("small");
 
     });
     jQuery("li#graf2").click(function () {
@@ -53,6 +54,7 @@ function pageLoad() {
         jQuery("div#grafico3").slideUp("small");
         jQuery("div#grafico4").slideUp("small");
         jQuery("div#grafico5").slideUp("small");
+        jQuery("div#grafico6").slideUp("small");
 
     });
     jQuery("li#graf3").click(function () {
@@ -61,6 +63,7 @@ function pageLoad() {
         jQuery("div#grafico1").slideUp("small");
         jQuery("div#grafico4").slideUp("small");
         jQuery("div#grafico5").slideUp("small");
+        jQuery("div#grafico6").slideUp("small");
 
     });
     jQuery("li#graf4").click(function () {
@@ -69,6 +72,7 @@ function pageLoad() {
         jQuery("div#grafico3").slideUp("small");
         jQuery("div#grafico1").slideUp("small");
         jQuery("div#grafico5").slideUp("small");
+        jQuery("div#grafico6").slideUp("small");
 
     });
     jQuery("li#graf5").click(function () {
@@ -77,6 +81,16 @@ function pageLoad() {
         jQuery("div#grafico3").slideUp("small");
         jQuery("div#grafico4").slideUp("small");
         jQuery("div#grafico1").slideUp("small");
+        jQuery("div#grafico6").slideUp("small");
+
+    });
+    jQuery("li#graf6").click(function () {
+        jQuery("div#grafico6").slideToggle("small");
+        jQuery("div#grafico2").slideUp("small");
+        jQuery("div#grafico3").slideUp("small");
+        jQuery("div#grafico4").slideUp("small");
+        jQuery("div#grafico1").slideUp("small");
+        jQuery("div#grafico5").slideUp("small");
 
     });
 

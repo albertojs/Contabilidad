@@ -16,7 +16,7 @@
 
 
 <asp:Content ContentPlaceHolderID="body" runat="server">
-    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server" ScriptMode="Release">
     </asp:ScriptManager>
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
@@ -64,7 +64,8 @@
                                             <asp:Label ID="lblConcepto2" runat="server" CssClass="lightGrey" Text="Concepto a insertar : " Width="220px"></asp:Label>
                                             <asp:DropDownList ID="ddlConcepto" runat="server" CssClass="darkGreyB">
                                             </asp:DropDownList>
-                                            
+                                            <asp:ListSearchExtender ID="ListSearchExtender1" runat="server" TargetControlID="ddlConcepto" PromptCssClass="listSearchExtender" PromptText="Buscar...">
+                                            </asp:ListSearchExtender>
                                         </li>
                                         <li>
                                             <asp:Label ID="lblImporte" runat="server" CssClass="lightGrey" Text="Importe de la Entrada/Salida : " Width="220px"></asp:Label>

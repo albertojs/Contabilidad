@@ -14,7 +14,7 @@
 
 <asp:Content ContentPlaceHolderID="body" runat="server">
 
-    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server" ScriptMode="Release">
     </asp:ScriptManager>
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
@@ -25,7 +25,7 @@
             </div>
                 
             <div id="listados">
-                <p>Generar listados</p>
+                <p class="pListados">Generar listados</p>
 
                 <div id="formListados"> 
 
@@ -74,7 +74,7 @@
                             <li>
                             
                                 <asp:Button ID="btListados" runat="server" Text="Generar Listado" CssClass="botonListados" Width="140px" OnClick="btListados_OnClick"/>
-                                <asp:ImageButton ID="ibListadoWord" runat="server" CssClass="word" ImageUrl="~/App_Themes/img/word.gif" OnClick="ibListadoWord_OnClick" ToolTip="Sacar Listado"/>
+                                <asp:ImageButton ID="ibListadoWord" runat="server" CssClass="word" ImageUrl="~/App_Themes/img/word.png" Width="29px" Height="29px" OnClick="ibListadoWord_OnClick" ToolTip="Sacar Listado Word"/>
                             
                             </li>
                         </ul>

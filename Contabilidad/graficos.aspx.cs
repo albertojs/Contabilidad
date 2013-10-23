@@ -16,6 +16,7 @@ public partial class Contabilidad_graficos : System.Web.UI.Page
            cargarDatosIniciales();    
         }
         divError.Visible = false;
+        divError.Attributes["class"] = "error";
     }
     protected void cargarDatosIniciales()
     {
@@ -131,6 +132,12 @@ public partial class Contabilidad_graficos : System.Web.UI.Page
         dt = ds.Tables[3];
         data = new DataView(dt);
         Chart5.Series["recaudacion"].Points.DataBind(data, "concepto", "importe", "");
+
+
+        dt = ds.Tables[4];
+        data = new DataView(dt);
+        Chart6.Series["Ganancias"].Points.DataBind(data, "Meses", "Ventas", "");
+
 
     }
 }

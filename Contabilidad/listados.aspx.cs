@@ -18,7 +18,9 @@ public partial class Contabilidad_listados : System.Web.UI.Page
             cargarTipoConceptos();
             cargarConceptoListados();
         }
+
         divError.Visible = false;
+        divError.Attributes["class"] = "error";
     }
     protected void cargarDatosIniciales()
     {
@@ -234,13 +236,13 @@ public partial class Contabilidad_listados : System.Web.UI.Page
 
                 lblTotalCaja2.Text = ds.Tables[2].Rows[0][0].ToString() + "  €";
             }
+
+            divError.Visible = true;
+            lblError.Text = "Se ha generado el listado";
+            divError.Attributes["class"] = "correcto";
+
+            visibilidadListado(true);
         }
-
-        divError.Visible = true;
-        lblError.Text = "Se ha generado el listado";
-        divError.Attributes["class"] = "correcto";
-
-        visibilidadListado(true);
     }
     protected void visibilidadListado(Boolean a)
     {
@@ -362,17 +364,33 @@ public partial class Contabilidad_listados : System.Web.UI.Page
 
             for (int i = 0; i < gvListados.Rows.Count; i++)
             {
-                filas = filas + "<tr><td style='padding-top:10px; width:100px;'>" + Convert.ToDateTime(gvListados.Rows[i].Cells[1].Text.ToString()).ToShortDateString() + "</td><td style='padding-top:10px;'>" + gvListados.Rows[i].Cells[3].Text.ToString() + "</td><td style='padding-top:10px; width:100px;'>" + gvListados.Rows[i].Cells[4].Text.ToString() + "</td><td style='padding-top:10px;  width:100px;'>" + gvListados.Rows[i].Cells[5].Text.ToString() + "</td></tr>";
+                filas = filas + "<tr><td style='padding-top:10px; width:100px;'>" + Convert.ToDateTime(gvListados.Rows[i].Cells[1].Text.ToString()).ToShortDateString() + "</td><td style='padding-top:10px;'>" + gvListados.Rows[i].Cells[3].Text.ToString();
+
+                if (gvListados.Rows[i].Cells[4].Text.ToString() == "ENTRADA")
+                {
+                    filas = filas + "</td><td style='padding-top:10px; width:100px;'><span style='color:Blue;'>" + gvListados.Rows[i].Cells[4].Text.ToString() + "</span></td><td style='padding-top:10px;  width:100px;'><span style='color:Blue;'>" + gvListados.Rows[i].Cells[5].Text.ToString() + "</span></td></tr>";
+                }
+                else
+                {
+                    filas = filas + "</td><td style='padding-top:10px; width:100px;'><span style='color:Red;'>" + gvListados.Rows[i].Cells[4].Text.ToString() + "</span></td><td style='padding-top:10px;  width:100px;'><span style='color:Red;'>" + gvListados.Rows[i].Cells[5].Text.ToString() + "</span></td></tr>";
+                }
+
+
             }
 
 
             html = html + filas + total + pie;
 
             Response.AddHeader("Content-Type", "application/msword");
-            Response.AddHeader("Content-disposition", "attachment; filename=Listado_"+DateTime.Now.ToShortDateString()+".doc");
+            Response.AddHeader("Content-disposition", "attachment; filename=Listado_" + DateTime.Now.ToShortDateString() + ".doc");
             Response.Charset = "";
             Response.Write(html);
 
+        }
+        else
+        {
+            divError.Visible = true;
+            lblError.Text = "No hay ningún dato para sacar en un listado Word";
         }
     }
     protected void cargarTipoConceptos()

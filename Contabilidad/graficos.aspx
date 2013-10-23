@@ -13,7 +13,7 @@
 
 
 <asp:Content ContentPlaceHolderID="body" runat="server">
-    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server" ScriptMode="Release">
     </asp:ScriptManager>
    
 
@@ -78,140 +78,181 @@
                                 <li id="graf5">
                                     Recaudación diaria VS fiestas
                                 </li>
+                                <li id="graf6">
+                                    Ganancias personales
+                                </li>
                             </ul>
                             </div>
                         
 
                         <div id="grafico1" class="grafico">
-                            <asp:Chart ID="Chart3" runat="server" Width="800px" Height="400px" 
-                                BackColor="WhiteSmoke" BackSecondaryColor="224, 224, 224" 
-                                BackGradientStyle="TopBottom" ViewStateMode="Enabled"  EnableViewState="true">
-                                <Series>
-                                    <asp:Series Name="Beneficios" ChartType="StackedColumn" ChartArea="ChartArea1"
-                                        YValuesPerPoint="10" >
-                                    </asp:Series>
+                            <div class="grafico2">
+                                <asp:Chart ID="Chart3" runat="server" Width="800px" Height="400px" 
+                                    BackColor="WhiteSmoke" BackSecondaryColor="224, 224, 224" 
+                                    BackGradientStyle="TopBottom" ViewStateMode="Enabled"  EnableViewState="true">
+                                    <Series>
+                                        <asp:Series Name="Beneficios" ChartType="StackedColumn" ChartArea="ChartArea1"
+                                            YValuesPerPoint="1" ToolTip="#VALX : #VALY €" >
+                                        </asp:Series>
                                         
-                                </Series>
-                                <ChartAreas>
-                                    <asp:ChartArea Name="ChartArea1" BackSecondaryColor="BlanchedAlmond" BackColor="White" BackGradientStyle="TopBottom">
-                                    <AxisY Title="€" TextOrientation="Horizontal"></AxisY>
-                                    <AxisX Title="Meses"></AxisX>
-                                        <Area3DStyle Enable3D="True" />
-                                    </asp:ChartArea>
-                                </ChartAreas>
-                                <Titles>
-                                    <asp:Title Text="Beneficios" TextStyle="Shadow" 
-                                        Font="Microsoft Sans Serif, 18pt" />
-                                </Titles>
-                                <Legends>
-                                    <asp:Legend Name="Default" BackSecondaryColor="White" BackColor="Gainsboro" BackGradientStyle="DiagonalLeft" />
-                                </Legends>
-                                <BorderSkin SkinStyle="Emboss" />
-                            </asp:Chart>
+                                    </Series>
+                                    <ChartAreas>
+                                        <asp:ChartArea Name="ChartArea1" BackSecondaryColor="BlanchedAlmond" BackColor="White" BackGradientStyle="TopBottom">
+                                        <AxisY Title="€" TextOrientation="Horizontal"></AxisY>
+                                        <AxisX Title="Meses"></AxisX>
+                                            <Area3DStyle Enable3D="True" />
+                                        </asp:ChartArea>
+                                    </ChartAreas>
+                                    <Titles>
+                                        <asp:Title Text="Beneficios" TextStyle="Shadow" 
+                                            Font="Microsoft Sans Serif, 18pt" />
+                                    </Titles>
+                                    <Legends>
+                                        <asp:Legend Name="Default" BackSecondaryColor="White" BackColor="Gainsboro" BackGradientStyle="DiagonalLeft" />
+                                    </Legends>
+                                    <BorderSkin SkinStyle="Emboss" />
+                                </asp:Chart>
+                            </div>
                         </div>
                          <div id="grafico2" class="grafico">
-                            <asp:Chart ID="Chart4" runat="server" Width="800px" Height="400px" 
-                                BackColor="WhiteSmoke" BackSecondaryColor="224, 224, 224" 
-                                BackGradientStyle="TopBottom"  ViewStateMode="Enabled"  EnableViewState="true">
-                                <Series>
-                                    <asp:Series Name="Gastos" ChartType="StackedColumn" ChartArea="ChartArea1" 
-                                        Color="IndianRed" >
-                                    </asp:Series>
-                                </Series>
-                                <ChartAreas>
-                                    <asp:ChartArea Name="ChartArea1" BackSecondaryColor="BlanchedAlmond" BackColor="White" BackGradientStyle="TopBottom">
-                                    <AxisY Title="€" TextOrientation="Horizontal"></AxisY>
-                                    <AxisX Title="Meses"></AxisX>
-                                        <Area3DStyle Enable3D="True" />
-                                    </asp:ChartArea>
-                                </ChartAreas>
-                                <Titles>
-                                    <asp:Title Text="Gastos" TextStyle="Shadow" 
-                                        Font="Microsoft Sans Serif, 18pt" />
-                                </Titles>
-                                <Legends>
-                                    <asp:Legend Name="Default" BackSecondaryColor="White" BackColor="Gainsboro" BackGradientStyle="DiagonalLeft" />
-                                </Legends>
-                                <BorderSkin SkinStyle="Emboss" />
-                            </asp:Chart>
+                            <div class="grafico2">
+                                <asp:Chart ID="Chart4" runat="server" Width="800px" Height="400px" 
+                                    BackColor="WhiteSmoke" BackSecondaryColor="224, 224, 224" 
+                                    BackGradientStyle="TopBottom"  ViewStateMode="Enabled"  EnableViewState="true">
+                                    <Series>
+                                        <asp:Series Name="Gastos" ChartType="StackedColumn" ChartArea="ChartArea1" 
+                                            Color="IndianRed"  ToolTip="#VALX : #VALY €" >
+                                        </asp:Series>
+                                    </Series>
+                                    <ChartAreas>
+                                        <asp:ChartArea Name="ChartArea1" BackSecondaryColor="BlanchedAlmond" BackColor="White" BackGradientStyle="TopBottom">
+                                        <AxisY Title="€" TextOrientation="Horizontal"></AxisY>
+                                        <AxisX Title="Meses"></AxisX>
+                                            <Area3DStyle Enable3D="True" />
+                                        </asp:ChartArea>
+                                    </ChartAreas>
+                                    <Titles>
+                                        <asp:Title Text="Gastos" TextStyle="Shadow" 
+                                            Font="Microsoft Sans Serif, 18pt" />
+                                    </Titles>
+                                    <Legends>
+                                        <asp:Legend Name="Default" BackSecondaryColor="White" BackColor="Gainsboro" BackGradientStyle="DiagonalLeft" />
+                                    </Legends>
+                                    <BorderSkin SkinStyle="Emboss" />
+                                </asp:Chart>
+                            </div>
                         </div>
                         <div id="grafico3" class="grafico">
-                            <asp:Chart ID="Chart1" runat="server" Width="800px" Height="400px" 
-                                BackColor="WhiteSmoke" BackSecondaryColor="224, 224, 224" 
-                                BackGradientStyle="TopBottom"  ViewStateMode="Enabled"  EnableViewState="true">
-                                <Series>
-                                    <asp:Series Name="Beneficios" ChartType="StackedColumn" ChartArea="ChartArea1" 
-                                        YValuesPerPoint="10" >
-                                    </asp:Series>
-                                    <asp:Series Name="Gastos" ChartType="StackedColumn" ChartArea="ChartArea1" 
-                                        Color="IndianRed" >
-                                    </asp:Series>
-                                </Series>
-                                <ChartAreas>
-                                    <asp:ChartArea Name="ChartArea1" BackSecondaryColor="BlanchedAlmond" BackColor="White" BackGradientStyle="TopBottom">
-                                    <AxisY Title="€" TextOrientation="Horizontal"></AxisY>
-                                    <AxisX Title="Meses"></AxisX>
-                                        <Area3DStyle Enable3D="True" />
-                                    </asp:ChartArea>
-                                </ChartAreas>
-                                <Titles>
-                                    <asp:Title Text="Beneficios y Gastos" TextStyle="Shadow" 
-                                        Font="Microsoft Sans Serif, 18pt" />
-                                </Titles>
-                                <Legends>
-                                    <asp:Legend Name="Default" BackSecondaryColor="White" BackColor="Gainsboro" BackGradientStyle="DiagonalLeft" />
-                                </Legends>
-                                <BorderSkin SkinStyle="Emboss" />
-                            </asp:Chart>
+                            <div class="grafico2">
+                                <asp:Chart ID="Chart1" runat="server" Width="800px" Height="400px" 
+                                    BackColor="WhiteSmoke" BackSecondaryColor="224, 224, 224" 
+                                    BackGradientStyle="TopBottom"  ViewStateMode="Enabled"  EnableViewState="true">
+                                    <Series>
+                                        <asp:Series Name="Beneficios" ChartType="StackedColumn" ChartArea="ChartArea1" 
+                                            YValuesPerPoint="10"  ToolTip="#VALX : #VALY €" >
+                                        </asp:Series>
+                                        <asp:Series Name="Gastos" ChartType="StackedColumn" ChartArea="ChartArea1" 
+                                            Color="IndianRed"  ToolTip="#VALX : #VALY €" >
+                                        </asp:Series>
+                                    </Series>
+                                    <ChartAreas>
+                                        <asp:ChartArea Name="ChartArea1" BackSecondaryColor="BlanchedAlmond" BackColor="White" BackGradientStyle="TopBottom">
+                                        <AxisY Title="€" TextOrientation="Horizontal"></AxisY>
+                                        <AxisX Title="Meses"></AxisX>
+                                            <Area3DStyle Enable3D="True" />
+                                        </asp:ChartArea>
+                                    </ChartAreas>
+                                    <Titles>
+                                        <asp:Title Text="Beneficios y Gastos" TextStyle="Shadow" 
+                                            Font="Microsoft Sans Serif, 18pt" />
+                                    </Titles>
+                                    <Legends>
+                                        <asp:Legend Name="Default" BackSecondaryColor="White" BackColor="Gainsboro" BackGradientStyle="DiagonalLeft" />
+                                    </Legends>
+                                    <BorderSkin SkinStyle="Emboss" />
+                                </asp:Chart>
+                            </div>
                         </div>
                         <div id="grafico4" class="grafico">
-                            <asp:Chart ID="Chart2" runat="server" Width="800px" Height="400px" 
-                                BackColor="WhiteSmoke" BackSecondaryColor="224, 224, 224" 
-                                BackGradientStyle="TopBottom"  ViewStateMode="Enabled"  EnableViewState="true">
-                                <Series>
-                                    <asp:Series Name="Series1" ChartType="Doughnut" ChartArea="ChartArea1" 
-                                        Legend="Default" Label="#PERCENT{P2}" LegendText="#VALX">
-                                    </asp:Series>
-                                </Series>
-                                <ChartAreas>
-                                    <asp:ChartArea Name="ChartArea1" BackColor="Transparent">
-                                        <Area3DStyle Enable3D="True" />
-                                    </asp:ChartArea>
-                                </ChartAreas>
-                                <Titles>
-                                    <asp:Title Text="Top 10 Gastos" TextStyle="Shadow" Font="Microsoft Sans Serif, 18pt" />
-                                </Titles>
-                                <Legends>
-                                    <asp:Legend Name="Default" BackSecondaryColor="White" BackColor="Gainsboro" BackGradientStyle="DiagonalLeft" />
-                                </Legends>
-                                <BorderSkin SkinStyle="Emboss" />
-                            </asp:Chart>
+                            <div class="grafico2">
+                                <asp:Chart ID="Chart2" runat="server" Width="800px" Height="400px" 
+                                    BackColor="WhiteSmoke" BackSecondaryColor="224, 224, 224" 
+                                    BackGradientStyle="TopBottom"  ViewStateMode="Enabled"  EnableViewState="true">
+                                    <Series>
+                                        <asp:Series Name="Series1" ChartType="Doughnut" ChartArea="ChartArea1" 
+                                            Legend="Default" Label="#PERCENT{P2}" LegendText="#VALX">
+                                        </asp:Series>
+                                    </Series>
+                                    <ChartAreas>
+                                        <asp:ChartArea Name="ChartArea1" BackColor="Transparent">
+                                            <Area3DStyle Enable3D="True" />
+                                        </asp:ChartArea>
+                                    </ChartAreas>
+                                    <Titles>
+                                        <asp:Title Text="Top 10 Gastos" TextStyle="Shadow" Font="Microsoft Sans Serif, 18pt" />
+                                    </Titles>
+                                    <Legends>
+                                        <asp:Legend Name="Default" BackSecondaryColor="White" BackColor="Gainsboro" BackGradientStyle="DiagonalLeft" />
+                                    </Legends>
+                                    <BorderSkin SkinStyle="Emboss" />
+                                </asp:Chart>
+                            </div>
                         </div>
                         <div id="grafico5" class="grafico">
-                            <asp:Chart ID="Chart5" runat="server" Width="800px" Height="400px" 
-                                BackColor="WhiteSmoke" BackSecondaryColor="224, 224, 224" 
-                                BackGradientStyle="TopBottom"  ViewStateMode="Enabled" EnableViewState="true">
-                                <Series>
-                                    <asp:Series Name="recaudacion" ChartType="Doughnut" ChartArea="ChartArea1" 
-                                        Legend="Default" Label="#PERCENT{P2}" LegendText="#VALX">
-                                    </asp:Series>
-                                </Series>
-                                <ChartAreas>
-                                    <asp:ChartArea Name="ChartArea1" BackColor="Transparent">
-                                        <Area3DStyle Enable3D="True" />
-                                    </asp:ChartArea>
-                                </ChartAreas>
-                                <Titles>
-                                    <asp:Title Text="Recaudación diaria VS fiestas" TextStyle="Shadow" 
-                                        Font="Microsoft Sans Serif, 18pt" />
-                                </Titles>
-                                <Legends>
-                                    <asp:Legend Name="Default" BackSecondaryColor="White" BackColor="Gainsboro" BackGradientStyle="DiagonalLeft" />
-                                </Legends>
-                                <BorderSkin SkinStyle="Emboss" />
-                            </asp:Chart>
+                            <div class="grafico2">
+                                <asp:Chart ID="Chart5" runat="server" Width="800px" Height="400px" 
+                                    BackColor="WhiteSmoke" BackSecondaryColor="224, 224, 224" 
+                                    BackGradientStyle="TopBottom"  ViewStateMode="Enabled" EnableViewState="true">
+                                    <Series>
+                                        <asp:Series Name="recaudacion" ChartType="Doughnut" ChartArea="ChartArea1" 
+                                            Legend="Default" Label="#PERCENT{P2}" LegendText="#VALX">
+                                        </asp:Series>
+                                    </Series>
+                                    <ChartAreas>
+                                        <asp:ChartArea Name="ChartArea1" BackColor="Transparent">
+                                            <Area3DStyle Enable3D="True" />
+                                        </asp:ChartArea>
+                                    </ChartAreas>
+                                    <Titles>
+                                        <asp:Title Text="Recaudación diaria VS fiestas" TextStyle="Shadow" 
+                                            Font="Microsoft Sans Serif, 18pt" />
+                                    </Titles>
+                                    <Legends>
+                                        <asp:Legend Name="Default" BackSecondaryColor="White" BackColor="Gainsboro" BackGradientStyle="DiagonalLeft" />
+                                    </Legends>
+                                    <BorderSkin SkinStyle="Emboss" />
+                                </asp:Chart>
+                            </div>
                         </div>
-
+                        <div id="grafico6" class="grafico">
+                            <div class="grafico2">
+                                <asp:Chart ID="Chart6" runat="server" Width="800px" Height="400px" 
+                                    BackColor="WhiteSmoke" BackSecondaryColor="224, 224, 224" 
+                                    BackGradientStyle="TopBottom" ViewStateMode="Enabled"  EnableViewState="true">
+                                    <Series>
+                                        <asp:Series Name="Ganancias" ChartType="StackedColumn" ChartArea="ChartArea1"
+                                            YValuesPerPoint="1" ToolTip="#VALX : #VALY €" >
+                                        </asp:Series>
+                                        
+                                    </Series>
+                                    <ChartAreas>
+                                        <asp:ChartArea Name="ChartArea1" BackSecondaryColor="BlanchedAlmond" BackColor="White" BackGradientStyle="TopBottom">
+                                        <AxisY Title="€" TextOrientation="Horizontal"></AxisY>
+                                        <AxisX Title="Meses"></AxisX>
+                                            <Area3DStyle Enable3D="True" />
+                                        </asp:ChartArea>
+                                    </ChartAreas>
+                                    <Titles>
+                                        <asp:Title Text="Ganancias" TextStyle="Shadow" 
+                                            Font="Microsoft Sans Serif, 18pt" />
+                                    </Titles>
+                                    <Legends>
+                                        <asp:Legend Name="Default" BackSecondaryColor="White" BackColor="Gainsboro" BackGradientStyle="DiagonalLeft" />
+                                    </Legends>
+                                    <BorderSkin SkinStyle="Emboss" />
+                                </asp:Chart>
+                            </div>
+                        </div>
                     </div>
             </div>
         </ContentTemplate>

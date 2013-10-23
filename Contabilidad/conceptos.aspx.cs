@@ -21,6 +21,7 @@ public partial class Contabilidad_conceptos : System.Web.UI.Page
             cargarTipoConceptos();
         }
         divError.Visible = false;
+        divError.Attributes["class"] = "error";
     }
     protected void comprobarSesion()
     {

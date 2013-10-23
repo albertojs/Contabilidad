@@ -6,6 +6,7 @@
     margin-top:0px;
     margin: 0px 0px 0px 0px;
     color:#606060;
+    
 }
 .body
 {
@@ -41,6 +42,7 @@
     padding:3px;
     cursor:default;
     display:none;
+    box-shadow:0px 0px 9px rgba(0, 0, 0, 0.8);
 }
 #logo
 {
@@ -208,6 +210,7 @@
     /*box-shadow:0px 5px 7px #d0d0d0;*/
     box-shadow:0px -9px 18px rgba(0, 0, 0, 0.6);
     height:0px;
+    margin-top:30px;
 }
 #inicio
 {
@@ -507,9 +510,10 @@
 {
     position:relative;
     top:-140px;
-    left:50px;
+    left:0px;
     margin-top:0px;
-    padding-top:0px;    
+    padding-top:0px;  
+    width:100%;  
 }
 #listaGraficos ul
 {
@@ -518,18 +522,23 @@
 }
 #listaGraficos ul li
 {
-    padding:0px;
+    padding:2px;
     margin:0px;
     list-style:none;
     display:inline-block;
-    margin-left:20px;
+    margin-left:8px;
     font-weight:bold;
     cursor:pointer;
     color:#4f7ed1;
+    font-size:16px;
+    
+    border-radius:5px;
+    box-shadow:0px 0px 9px rgba(0, 0, 0, 0.5);
 }
 #listaGraficos ul li:hover
 {
     color:#404040;
+    box-shadow:0px 0px 9px rgba(0, 0, 0, 0.8);
 }
 .grafico
 {
@@ -538,12 +547,36 @@
     margin-left:50px;
     display:none;
     width:800px;
+    
 }
+.grafico2
+{
+    -webkit-transform:scale(1); /*Webkit: Scale down image to 0.8x original size*/
+    -moz-transform:scale(1); /*Mozilla scale version*/
+    -o-transform:scale(1); /*Opera scale version*/
+    -webkit-transition-duration: 1s; /*Webkit: Animation duration*/
+    -moz-transition-duration: 1s; /*Mozilla duration version*/
+    -o-transition-duration:1s; /*Opera duration version*/
+}
+.grafico2:hover
+{
+    -webkit-transform:scale(1.4); /*Webkit: Scale down image to 0.8x original size*/
+    -moz-transform:scale(1.4); /*Mozilla scale version*/
+    -o-transform:scale(1.4); /*Opera scale version*/
+    -webkit-transition-duration: 1s; /*Webkit: Animation duration*/
+    -moz-transition-duration: 1s; /*Mozilla duration version*/
+    -o-transition-duration:1s; /*Opera duration version*/
+}
+
 #listados
 {
     position:relative;
     padding:0px;
     margin-bottom:35px;
+}
+.pListados
+{
+    font-size:20px;
 }
 #listados p
 {
@@ -594,6 +627,22 @@
 {
     margin-left:20px;
     vertical-align:middle;
+    
+    -webkit-transform:scale(1); /*Webkit: Scale down image to 0.8x original size*/
+    -moz-transform:scale(1); /*Mozilla scale version*/
+    -o-transform:scale(1); /*Opera scale version*/
+    -webkit-transition-duration: 0.5s; /*Webkit: Animation duration*/
+    -moz-transition-duration: 0.5s; /*Mozilla duration version*/
+    -o-transition-duration:0.5s; /*Opera duration version*/
+}
+.word:hover
+{
+    -webkit-transform:scale(1.2); /*Webkit: Scale down image to 0.8x original size*/
+    -moz-transform:scale(1.2); /*Mozilla scale version*/
+    -o-transform:scale(1.2); /*Opera scale version*/
+    -webkit-transition-duration: 0.5s; /*Webkit: Animation duration*/
+    -moz-transition-duration: 0.5s; /*Mozilla duration version*/
+    -o-transition-duration:0.5s; /*Opera duration version*/
 }
 .lbConceptos
 {
@@ -677,6 +726,8 @@
 {
     text-align:center;
     color:#404040;
+    
+    
     
 }
 #divGvListados2 table tr:hover
