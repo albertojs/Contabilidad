@@ -89,7 +89,7 @@
                             <div class="grafico2">
                                 <asp:Chart ID="Chart3" runat="server" Width="800px" Height="400px" 
                                     BackColor="WhiteSmoke" BackSecondaryColor="224, 224, 224" 
-                                    BackGradientStyle="TopBottom" ViewStateMode="Enabled"  EnableViewState="true">
+                                    BackGradientStyle="TopBottom"  EnableViewState="true">
                                     <Series>
                                         <asp:Series Name="Beneficios" ChartType="StackedColumn" ChartArea="ChartArea1"
                                             YValuesPerPoint="1" ToolTip="#VALX : #VALY €" >
@@ -118,7 +118,7 @@
                             <div class="grafico2">
                                 <asp:Chart ID="Chart4" runat="server" Width="800px" Height="400px" 
                                     BackColor="WhiteSmoke" BackSecondaryColor="224, 224, 224" 
-                                    BackGradientStyle="TopBottom"  ViewStateMode="Enabled"  EnableViewState="true">
+                                    BackGradientStyle="TopBottom"  EnableViewState="true">
                                     <Series>
                                         <asp:Series Name="Gastos" ChartType="StackedColumn" ChartArea="ChartArea1" 
                                             Color="IndianRed"  ToolTip="#VALX : #VALY €" >
@@ -146,7 +146,7 @@
                             <div class="grafico2">
                                 <asp:Chart ID="Chart1" runat="server" Width="800px" Height="400px" 
                                     BackColor="WhiteSmoke" BackSecondaryColor="224, 224, 224" 
-                                    BackGradientStyle="TopBottom"  ViewStateMode="Enabled"  EnableViewState="true">
+                                    BackGradientStyle="TopBottom"  EnableViewState="true">
                                     <Series>
                                         <asp:Series Name="Beneficios" ChartType="StackedColumn" ChartArea="ChartArea1" 
                                             YValuesPerPoint="10"  ToolTip="#VALX : #VALY €" >
@@ -177,7 +177,7 @@
                             <div class="grafico2">
                                 <asp:Chart ID="Chart2" runat="server" Width="800px" Height="400px" 
                                     BackColor="WhiteSmoke" BackSecondaryColor="224, 224, 224" 
-                                    BackGradientStyle="TopBottom"  ViewStateMode="Enabled"  EnableViewState="true">
+                                    BackGradientStyle="TopBottom"   EnableViewState="true">
                                     <Series>
                                         <asp:Series Name="Series1" ChartType="Doughnut" ChartArea="ChartArea1" 
                                             Legend="Default" Label="#PERCENT{P2}" LegendText="#VALX">
@@ -202,7 +202,7 @@
                             <div class="grafico2">
                                 <asp:Chart ID="Chart5" runat="server" Width="800px" Height="400px" 
                                     BackColor="WhiteSmoke" BackSecondaryColor="224, 224, 224" 
-                                    BackGradientStyle="TopBottom"  ViewStateMode="Enabled" EnableViewState="true">
+                                    BackGradientStyle="TopBottom"   EnableViewState="true">
                                     <Series>
                                         <asp:Series Name="recaudacion" ChartType="Doughnut" ChartArea="ChartArea1" 
                                             Legend="Default" Label="#PERCENT{P2}" LegendText="#VALX">
@@ -228,7 +228,7 @@
                             <div class="grafico2">
                                 <asp:Chart ID="Chart6" runat="server" Width="800px" Height="400px" 
                                     BackColor="WhiteSmoke" BackSecondaryColor="224, 224, 224" 
-                                    BackGradientStyle="TopBottom" ViewStateMode="Enabled"  EnableViewState="true">
+                                    BackGradientStyle="TopBottom"  EnableViewState="true">
                                     <Series>
                                         <asp:Series Name="Ganancias" ChartType="StackedColumn" ChartArea="ChartArea1"
                                             YValuesPerPoint="1" ToolTip="#VALX : #VALY €" >
