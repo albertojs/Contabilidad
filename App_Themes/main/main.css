@@ -649,6 +649,13 @@
     margin-left:185px;
     color:#404040;
     font-weight:bold;
+    border-radius:5px;
+    border:1px solid #606060;
+    background-color:White;
+}
+.lbConceptos:focus
+{
+    border:1px solid #4f7ed1;
 }
 .rblTipoConceptoListados
 {
@@ -827,4 +834,69 @@
 {
     color:#404040;
     font-size:12px;
+}
+.textbox
+{
+    color:#404040;
+    font-weight:bold;
+    border-radius:5px;
+    border:1px solid #606060;
+    
+}
+.textbox:focus
+{
+    border:1px solid #4f7ed1;  
+}
+.textboxBlue
+{
+    color:#4f7ed1;
+    font-weight:bold;
+    border-radius:5px;
+    border:1px solid #606060;
+}
+.textboxBlue:focus
+{
+    border:1px solid #4f7ed1;  
+}
+.textboxRed
+{
+     color:#DE011A;
+    font-weight:bold;
+    border-radius:5px;
+    border:1px solid #606060;
+}
+.textboxRed:focus
+{
+    border:1px solid #4f7ed1;  
+}
+.calendarSelectedDay
+{
+    border-radius:5px;
+}
+.calendarToday
+{
+    border-radius:5px;
+}
+.textboxLogin
+{
+    color:#404040;
+    font-weight:bold;
+    border-radius:5px;
+    border:2px solid #FFFFFF;
+    
+}
+.textboxLogin:focus
+{
+    border:2px solid #FFFFFF;
+}
+.textboxLoginPass
+{
+    color:#404040;
+    font-weight:bold;
+    border-radius:5px;
+    border:2px solid #FFFFFF;
+}
+.textboxLoginPass:focus
+{
+    border:2px solid #FFFFFF;
 }

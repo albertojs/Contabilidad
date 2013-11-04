@@ -48,11 +48,11 @@ public partial class Contabilidad_entradaSalida : System.Web.UI.Page
 
         if (rblTipoConcepto.SelectedValue == "1")
         {
-            ddlConcepto.CssClass="darkBlue";
+            ddlConcepto.CssClass = "textboxBlue";
         }
         else if (rblTipoConcepto.SelectedValue == "2")
         {
-            ddlConcepto.CssClass = "red"; 
+            ddlConcepto.CssClass = "textboxRed"; 
         }
     }
     protected void cargarConceptosInsertar()

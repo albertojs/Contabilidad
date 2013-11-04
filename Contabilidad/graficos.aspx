@@ -33,9 +33,9 @@
                             <div id="calendarioGraficos">
                             <asp:Calendar ID="calendarioGrafico" runat="server" Height="100px" DayHeaderStyle-HorizontalAlign="Center" CssClass="calendarioEntradaSalida" OnSelectionChanged="calendarioGrafico_OnSelectionChanged">
                                 <TitleStyle BackColor="#ffb400" Font-Size="14px" HorizontalAlign="Center" Font-Bold="true"/>
-                                <SelectedDayStyle  BackColor="#4dbbe5" HorizontalAlign="Center"/>
+                                <SelectedDayStyle  BackColor="#4dbbe5" HorizontalAlign="Center" CssClass="calendarSelectedDay"/>
                                 <DayStyle Font-Underline="false" HorizontalAlign="Center" BackColor="White"/>
-                                <TodayDayStyle BackColor="#ffb400" HorizontalAlign="Center"/>
+                                <TodayDayStyle BackColor="#ffb400" HorizontalAlign="Center" CssClass="calendarToday"/>
                                 <OtherMonthDayStyle BackColor="white"/>
                                 <NextPrevStyle HorizontalAlign="Center" Font-Bold="true"/>
                                 <DayHeaderStyle  BackColor="#ffb400"/>
@@ -46,12 +46,12 @@
                                 <ul>
                                     <li>
                                         <asp:Label ID="Label1" runat="server" CssClass="lightGrey" Text="Fecha Inicial" Width="150px"></asp:Label>
-                                        <asp:TextBox ID="txtFechaInicialGrafico" runat="server" CssClass="darkGreyB" Width="90px" MaxLength="10"></asp:TextBox>&nbsp;&nbsp;
+                                        <asp:TextBox ID="txtFechaInicialGrafico" runat="server" CssClass="textbox" Width="90px" MaxLength="10"></asp:TextBox>&nbsp;&nbsp;
                                         <asp:Label ID="Label2" runat="server" Text="(dd/mm/aaaa)" CssClass="darkBlue" ></asp:Label>
                                     </li>
                                     <li>
                                         <asp:Label ID="Label3" runat="server" CssClass="lightGrey" Text="Fecha Final" Width="150px"></asp:Label>    
-                                        <asp:TextBox ID="txtFechaFinalGrafico" runat="server" CssClass="darkGreyB" Width="90px" MaxLength="10"></asp:TextBox>&nbsp;&nbsp;
+                                        <asp:TextBox ID="txtFechaFinalGrafico" runat="server" CssClass="textbox" Width="90px" MaxLength="10"></asp:TextBox>&nbsp;&nbsp;
                                         <asp:Label ID="Label4" runat="server" Text="(dd/mm/aaaa)" CssClass="darkBlue"></asp:Label>    
                                     </li>
                                     <li id="liBoton">

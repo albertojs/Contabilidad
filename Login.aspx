@@ -27,11 +27,11 @@
                                 <ul>
                                     <li>
                                         <asp:Label ID="lblNombre" runat="server" Text="Nombre : " CssClass="whiteB" Width="150px"></asp:Label>
-                                        <asp:TextBox ID="txtNombre" runat="server" CssClass="darkGreyB" Width="150px"></asp:TextBox>
+                                        <asp:TextBox ID="txtNombre" runat="server" CssClass="textboxLogin" Width="150px"></asp:TextBox>
                                     </li>
                                     <li>
                                         <asp:Label ID="lblPassword" runat="server" Text="Contraseña : " CssClass="whiteB" Width="150px"></asp:Label>  
-                                        <asp:TextBox ID="txtPassword" runat="server" CssClass="darkGreyB" Width="150px" TextMode="Password"></asp:TextBox>
+                                        <asp:TextBox ID="txtPassword" runat="server" CssClass="textboxLoginPass" Width="150px" TextMode="Password"></asp:TextBox>
                                     </li>
                                     <li>    
                                         <asp:Button ID="btEntrar" runat="server" Text="Entrar" CssClass="botonEntradaSalida" OnClick="btEntrar_OnClick" />

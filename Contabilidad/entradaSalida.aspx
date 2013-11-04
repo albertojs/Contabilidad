@@ -38,9 +38,9 @@
                                             DayHeaderStyle-HorizontalAlign="Center" CssClass="calendarioEntradaSalida" 
                                             OnSelectionChanged="CalendarFechaInsercion_OnSelectionChanged">
                                             <TitleStyle BackColor="#ffb400" Font-Size="14px" HorizontalAlign="Center" Font-Bold="true"/>
-                                            <SelectedDayStyle  BackColor="#4dbbe5" HorizontalAlign="Center"/>
+                                            <SelectedDayStyle  BackColor="#4dbbe5" HorizontalAlign="Center" CssClass="calendarSelectedDay"/>
                                             <DayStyle Font-Underline="false" HorizontalAlign="Center" BackColor="White"/>
-                                            <TodayDayStyle BackColor="#ffb400" HorizontalAlign="Center"/>
+                                            <TodayDayStyle BackColor="#ffb400" HorizontalAlign="Center" CssClass="calendarToday"/>
                                             <OtherMonthDayStyle BackColor="white"/>
                                             <NextPrevStyle HorizontalAlign="Center" Font-Bold="true"/>
                                             <DayHeaderStyle  BackColor="#ffb400"/>
@@ -62,14 +62,12 @@
                                         </li>
                                         <li>
                                             <asp:Label ID="lblConcepto2" runat="server" CssClass="lightGrey" Text="Concepto a insertar : " Width="220px"></asp:Label>
-                                            <asp:DropDownList ID="ddlConcepto" runat="server" CssClass="darkGreyB">
+                                            <asp:DropDownList ID="ddlConcepto" runat="server" CssClass="textbox">
                                             </asp:DropDownList>
-                                            <asp:ListSearchExtender ID="ListSearchExtender1" runat="server" TargetControlID="ddlConcepto" PromptCssClass="listSearchExtender" PromptText="Buscar...">
-                                            </asp:ListSearchExtender>
                                         </li>
                                         <li>
                                             <asp:Label ID="lblImporte" runat="server" CssClass="lightGrey" Text="Importe de la Entrada/Salida : " Width="220px"></asp:Label>
-                                            <asp:TextBox ID="txtImporte" runat="server" CssClass="darkGreyB" Width="150px"></asp:TextBox>
+                                            <asp:TextBox ID="txtImporte" runat="server" CssClass="textbox" Width="150px"></asp:TextBox>
                                         </li>
                                         <li>
                                             <asp:Button ID="btGuardarInsercionCaja" runat="server" Text="Guardar" CssClass="botonEntradaSalida" OnClick="btGuardarInsercionCaja_OnClick"/>
