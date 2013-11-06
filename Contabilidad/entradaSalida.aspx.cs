@@ -87,7 +87,7 @@ public partial class Contabilidad_entradaSalida : System.Web.UI.Page
         {
             divError.Visible = true;
 
-            lblError.Text = "El Importe ha introducir ha de ser un valor numérico";
+            lblError.Text = "El Importe a introducir ha de ser un valor numérico";
         }
         else
         {
@@ -113,11 +113,12 @@ public partial class Contabilidad_entradaSalida : System.Web.UI.Page
     }
     protected void reiniciarDatos()
     {
-        rblTipoConcepto.SelectedIndex = -1;
+        /*rblTipoConcepto.SelectedIndex = -1;
         DataSet ds = null;
         ddlConcepto.DataSource = ds;
         ddlConcepto.DataBind();
-        ddlConcepto.Items.Clear();
+        ddlConcepto.Items.Clear();*/
+        ddlConcepto.Focus();
         txtImporte.Text = "";
     }
     protected Boolean isNumeric(String numero)
